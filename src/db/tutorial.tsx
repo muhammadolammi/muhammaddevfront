@@ -1,11 +1,11 @@
 
-import { resolveCaa } from 'dns'
+// import { resolveCaa } from 'dns'
 import{apiUrl} from '../env'
 import { Tutorial } from '../models'
 import { fetchData } from './getData'
 const fetchTutorials =  async ():Promise<Tutorial[]> => {
     try{ 
-        const tutorials = await fetchData<[Tutorial]>(apiUrl+"/tutorials"??"", )
+        const tutorials = await fetchData<[Tutorial]>(`${apiUrl}/tutorials`??"", )
         
         // tutorialsRes.then(res=>{
         //   // TODO remove console.log

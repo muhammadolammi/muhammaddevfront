@@ -12,7 +12,7 @@ export interface Post  {
 	title :      string ;
 	post_url:     string; 
 	content :    string ;
-	youtube_link: string ;
+	
 }
 
 export interface Tutorial  {

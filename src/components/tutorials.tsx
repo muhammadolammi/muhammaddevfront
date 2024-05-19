@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Tutorial } from './models';
+import { Tutorial } from '../models';
 
 
 const TutorialCard: React.FC<{ tutorial: Tutorial }> = ({ tutorial }) => {
