@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+// import './css/index.css';
 import { fetchTutorials } from './db/tutorial';
 import { useState , useEffect} from 'react';
 import { Post, Tutorial } from './models';

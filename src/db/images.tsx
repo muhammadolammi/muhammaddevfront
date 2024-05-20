@@ -1,4 +1,4 @@
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+import { deleteObject, getDownloadURL, ref, uploadBytes } from "firebase/storage"
 import { storage } from "../firebase"
 import {v1} from "uuid"
 
@@ -13,9 +13,20 @@ if (!imageFile){
     
     ).catch(e=>{
         console.error('Error uploading image:', e);
-        return ""
-      throw e;
+        throw e;
+        
+      
     })
 }
 
-export {uploadImage}
+const deleteImage = async (imageUrl: string)=> {
+
+    try {
+        const imageRef = ref(storage, imageUrl);
+        await deleteObject(imageRef);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+export {uploadImage , deleteImage}

@@ -4,11 +4,18 @@ import { Tutorial } from '../models';
 
 
 const TutorialCard: React.FC<{ tutorial: Tutorial }> = ({ tutorial }) => {
+  const getPreviewContent = (content: string, wordLimit: number): string => {
+    const words = content.split(' ');
+    if (words.length <= wordLimit) {
+      return content;
+    }
+    return words.slice(0, wordLimit).join(' ') + '...';
+  };
     return (
       <div className="tutorial-card">
        
         <h2>{tutorial.title}</h2>
-        <p>{tutorial.description}</p>
+        <p>{getPreviewContent(tutorial.description, 50)}</p>
       </div>
     );
   };

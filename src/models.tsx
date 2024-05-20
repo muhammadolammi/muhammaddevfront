@@ -12,6 +12,7 @@ export interface Post  {
 	title :      string ;
 	post_url:     string; 
 	content :    string ;
+	thumbnail: string;
 	
 }
 

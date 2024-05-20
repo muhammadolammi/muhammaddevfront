@@ -1,63 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Post } from '../models'
 import { apiUrl } from '../env'
 import { publishPost } from '../db/posts'
 import { uploadImage } from '../db/images'
+import { TextEditor } from '../components/TextEditor'
+import { Editor, useCurrentEditor } from '@tiptap/react'
+// import { replacePlaceholdersWithImages } from '../helperfunc/HelperFuncs'
+
 
 type Props = {}
 
 const Publish = (props: Props) => {
-  const imagePlaceholder = "vxwqaqwydjlfosfgdjjdggaghdjanimageishere"
   const [title, setTitle] = useState("")
-  const [content, setContent] = useState("")
+  const [thumbnail, setThumbnail] = useState("")
   const navigate = useNavigate()
   const [loading, setLoading] = useState<boolean>(false);
+  // I use a empty string for the post content since i will get it from the post editor
+  const post = { id: "", title: title, content: "content", post_url: `${apiUrl}/posts/${title}`, thumbnail:thumbnail }
+  const [editor, setEditor] = useState<Editor>()
   
-  const onPublish = async (post: Post) => {
-    setLoading(true)
-   
-    await publishPost({
-      id: "",
-      title: post.title,
-      content: post.content,
-      post_url: post.post_url
-    })
-    
-    setLoading(false)
-    navigate('/')
-    console.log(post.content)
-  }
-  
-  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
-      const image = event.target.files[0];
-      const imageUrl = await uploadImage(image, `posts/${title}`);
-      const contentInput = document.getElementById("contentInput") as HTMLInputElement;
-      const cursorPosition = contentInput.selectionStart ?? 0; // Use 0 if selectionStart is null
-      const newContent = content.slice(0, cursorPosition) + `${imagePlaceholder + imageUrl + Date.now()}` + content.slice(cursorPosition);
-      setContent(newContent);
-    }
-  };
-  
+ 
+ 
 
-  const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setContent(e.target.value)
-  }
 
   return (
     loading ? <p>Loading...</p> :
     (
       <div className="publish-page">
-        <input className='title-input' type="text" placeholder='Title' onChange={e => setTitle(e.target.value)} />
-        <div className="content-input">
-          <input id="contentInput" type="text" placeholder='Type here....' onChange={handleContentChange} value={content} />
-        </div>
-        <input type="file" onChange={handleFileChange} />
-        <button onClick={e => onPublish({ id: "", title: title, content: content, post_url: `${apiUrl}/posts/${title}` })}>Publish</button>
+       <textarea id='title-input'  placeholder='Title' onChange={e => setTitle(e.target.value)} />
+        
+       
+        <TextEditor post={post} setEditor={setEditor} thumbnail={thumbnail} setThumbnail={setThumbnail}  setLoading={setLoading}/>
+        <input type="file"  />
+<br></br>
+        
       </div>
     )
   )
 }
 
 export { Publish }
+
+
