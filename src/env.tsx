@@ -1,4 +1,5 @@
 const apiUrl = process.env.REACT_APP_API_URL;
+const mainUrl = process.env.REACT_APP_MAIN_URL;
 const firebaseApiKey = process.env.REACT_APP_FIREBASE_API_KEY;
 const authDomain = process.env.REACT_APP_AUTH_DOMAIN;
 const projectId = process.env.REACT_APP_PROJECT_ID;
@@ -16,4 +17,5 @@ export {
   messagingSenderId,
   appId,
   measurementId,
+  mainUrl
 };

@@ -10,12 +10,27 @@ import { Editor, EditorContent, useEditor } from '@tiptap/react'
 import React, { useRef, useState,useEffect } from 'react'
 import { deleteImage, uploadImage } from '../db/images'
 import { Post } from '../models'
-import { publishPost } from '../db/posts'
+import { editPost, publishPost } from '../db/posts'
+import { mainUrl } from '../env'
+import { EditPost } from '../views/EditPostPage'
 
-const TextEditor: React.FC<{ post: Post, setEditor: (editor: Editor) => void, setLoading: (loading: boolean) => void, setThumbnail: (thumbnail: string) => void,thumbnail: string }> = ({ post, setEditor,setThumbnail,thumbnail, setLoading }) => {
-  const content = `
+const EditEditor:  React.FC<{ title: string, setLoading:  (loading: boolean) => void, post:Post
+    }> = ({ title, setLoading, post }) => {
+ 
+ const [thumbnail, setThumbnail ]= useState("")
+
+
+//  useEffect(()=>{
+//   setThumbnail(getThumbnail)
+//  }, [getThumbnail])
+
+
+
+     const content = `
   
 `;
+
+
 
 const extensions = [
 
@@ -33,13 +48,7 @@ const extensions = [
       extensions, content
     }
   );
-
-  useEffect(() => {
-    if (editor) {
-      setEditor(editor);
-      
-    }
-  }, [editor, setEditor]);
+   
 
 
   const imageInputRef = useRef<HTMLInputElement>(null);
@@ -52,23 +61,36 @@ const extensions = [
   const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>, editor: Editor) => {
     const file = event.target.files?.[0];
     if (file) {
-      const url = await uploadImage(file, `images/posts/${post.title}`);
+      const url = await uploadImage(file, `images/posts/${title}`);
       if (editor && url) {
         editor.chain().focus().setImage({ src: url }).run();
       }
     }
   };
 
-  const handleThumbnailChange = async (event: React.ChangeEvent<HTMLInputElement>) =>{
+  const handleThumbnailChange =  (event: React.ChangeEvent<HTMLInputElement>) =>{
     if(thumbnail){
       deleteImage(thumbnail)
     }
+    
+   
     const file = event.target.files?.[0];
 
    if(file){ 
 
-   const imageUrl  =await uploadImage(file,  `images/posts/thumbnail`)
-   setThumbnail(imageUrl)
+      uploadImage(file,  `images/posts/${title}/thumbnail`).then((imageUrl)=>{
+        if (!title){
+          alert("Input a title to set a thumbnail")
+          return 
+        }
+        setThumbnail(imageUrl)
+        
+
+      }).catch((e)=>{
+        console.log(e)
+        throw(e)
+      })
+
   }
    
   }
@@ -119,20 +141,23 @@ const extensions = [
   };
 
  
-  const onPublish = async (post: Post) => {
+  const onEdit = async () => {
     setLoading(true)
     var postContent = ""
     if (editor){
       postContent  = editor.getHTML()
     }
-  
-    await publishPost({
-      id: "",
+   const  updatedPost:Post =   {
+      id: post.id,
       title: post.title,
-      content: postContent,
+      content : postContent, 
       post_url: post.post_url,
-      thumbnail: thumbnail
-    })
+      thumbnail: post.thumbnail
+    
+    }
+   
+  
+    await editPost(updatedPost)
     
     setLoading(false)
     // navigate('/')
@@ -144,7 +169,7 @@ const extensions = [
     <div>
       <MenuBar />
        <EditorContent editor={editor} />
-       <button onClick={()=> onPublish(post)}>Publish</button>
+       <button onClick={onEdit}>Update</button>
 
     </div>
   );
@@ -152,4 +177,4 @@ const extensions = [
 
 
 
-export{TextEditor}
+export{EditEditor}
