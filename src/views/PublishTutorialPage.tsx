@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
-import { Post } from '../models'
-import { apiUrl, mainUrl } from '../env'
-import { publishPost } from '../db/posts'
-import { uploadImage } from '../db/images'
-import { PublishPostEditor } from '../components/PublishPostEditor'
+import React, {  useState } from 'react'
+// import { useNavigate } from 'react-router'
+
 import { PublishTutorialEditor } from '../components/PublishTutorialEditor'
 // import { replacePlaceholdersWithImages } from '../helperfunc/HelperFuncs'
 
@@ -13,7 +9,7 @@ type Props = {}
 
 const PublishTutorialPage = (props: Props) => {
   const [title, setTitle] = useState("")
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [loading, setLoading] = useState<boolean>(false);
   // I use a empty string for the post content since i will get it from the post editor
 

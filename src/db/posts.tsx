@@ -1,6 +1,6 @@
 
 // import { resolveCaa } from 'dns'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import{apiUrl} from '../env'
 import { Post } from '../models'
 import { fetchData } from './getData'

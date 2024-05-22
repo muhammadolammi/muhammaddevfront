@@ -9,10 +9,8 @@ import Text from '@tiptap/extension-text'
 import { Editor, EditorContent, useEditor } from '@tiptap/react'
 import React, { useRef, useState, useEffect } from 'react'
 import { checkImageExists, deleteImage, uploadImage } from '../db/images'
-import { publishPost } from '../db/posts'
 import { mainUrl } from '../env'
 import { publishTutorial } from '../db/tutorial'
-import { ThreeDotButton } from './ThreeDotsButton'
 import { ShowPlaylistButton } from './ShowPlaylistButton'
 
 const PublishTutorialEditor: React.FC<{ title: string, setLoading: (loading: boolean) => void }> = ({ title, setLoading }) => {
