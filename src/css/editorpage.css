@@ -1,0 +1,67 @@
+
+/* Publish Page style */
+.publish-page{
+    margin:60px;
+   
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  .content-input{
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+  }  
+  .content-input{  height: 500px;
+    padding: 10px;
+    position: relative;
+    margin: 10px;
+    
+  }
+  
+  .content-input #contentInput, #title-input {
+    
+    font-size: 20px ;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ddd; /* Ensure the initial border is set */
+  
+   
+  }
+  
+  .content-input #contentInput:hover, #title-inputhover {
+    border-color: transparent;
+  }
+  
+  .content-input #contentInput:focus, #title-inputfocus {
+    border-color: transparent; /* Remove border color on focus */
+    outline: none; /* Remove the default outline */
+  }
+  
+  /* 
+  title-input{
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    height: 50px;
+    width: 95%;
+    margin: 20px;
+    position: relative;
+    padding: 10px;
+  } */
+  
+  
+  #title-input{
+    border-left :none ;
+    border-top: none;
+    border-right: none;
+  }
+  
+  #title-input:focus-within {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid blue; /* Customize the bottom border as needed */
+    outline: none; /* Remove the outline if any */
+  }

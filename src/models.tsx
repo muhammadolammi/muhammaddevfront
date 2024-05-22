@@ -23,6 +23,7 @@ export interface Tutorial  {
 	description :string ;
 	youtube_link: string ;
 	playlist_id: string;
+	thumbnail:string;
 }
 
 

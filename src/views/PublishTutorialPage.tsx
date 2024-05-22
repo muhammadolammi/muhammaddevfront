@@ -4,20 +4,20 @@ import { Post } from '../models'
 import { apiUrl, mainUrl } from '../env'
 import { publishPost } from '../db/posts'
 import { uploadImage } from '../db/images'
-import { PublishEditor } from '../components/PublishEditor'
+import { PublishPostEditor } from '../components/PublishPostEditor'
+import { PublishTutorialEditor } from '../components/PublishTutorialEditor'
 // import { replacePlaceholdersWithImages } from '../helperfunc/HelperFuncs'
 
 
 type Props = {}
 
-const Publish = (props: Props) => {
+const PublishTutorialPage = (props: Props) => {
   const [title, setTitle] = useState("")
   const navigate = useNavigate()
   const [loading, setLoading] = useState<boolean>(false);
   // I use a empty string for the post content since i will get it from the post editor
 
   
- 
  
 
 
@@ -28,7 +28,7 @@ const Publish = (props: Props) => {
        <textarea id='title-input'  placeholder='Title' onChange={e => setTitle(e.target.value)} />
         
        
-        <PublishEditor 
+        <PublishTutorialEditor 
         title={title}
         setLoading={setLoading}/>
         <input type="file"  />
@@ -39,6 +39,6 @@ const Publish = (props: Props) => {
   )
 }
 
-export { Publish }
+export { PublishTutorialPage  }
 
 

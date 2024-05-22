@@ -2,45 +2,48 @@ import '../css/editorpage.css';
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Post } from '../models';
+import { Post, Tutorial } from '../models';
 import { getPostWithId } from '../db/posts';
 import { EditPostEditor } from '../components/EditPostEditor';
 import { dataToPost } from '../helperfunc/dataToPost';
+import { getTutorialWithId } from '../db/tutorial';
+import { dataToTutorial } from '../helperfunc/datatToTutorial';
+import { EditTutorialEditor } from '../components/EditTutorialEditor';
 
 type Props = {};
 
-const EditPostPage: React.FC<Props> = () => {
-  const { postID } = useParams<{ postID: string }>(); // Extract postId from the URL
+const EditTutorialPage: React.FC<Props> = () => {
+  const { tutorialID } = useParams<{ tutorialID: string }>(); // Extract postId from the URL
   const [title, setTitle] = useState("");
   // const [thumbnail, setThumbnail] = useState("");
   const [loading, setLoading] = useState<boolean>(true);
-  const [currentPost, setCurrentPost] = useState<Post|null >(null);
+  const [currentTutorial, setCurrentTutorial] = useState<Tutorial|null >(null);
 
   useEffect(() => { 
-    const fetchPost = async () => {
+    const fetchTutorial = async () => {
       try {
-        if (postID) {
-          const postData = await getPostWithId(postID);
+        if (tutorialID) {
+          const tutorialData = await getTutorialWithId(tutorialID);
           
-          setTitle(postData.title);
+          setTitle(tutorialData.title);
           // setThumbnail(postData.thumbnail);
-          const currentPost =  dataToPost(postData)
-          setCurrentPost(currentPost);
+          const currentTutorial =  dataToTutorial(tutorialData)
+          setCurrentTutorial(currentTutorial);
           // console.log(currentPost)
           // console.log(postData)
           // console.log(postData.id)
         } else {
-          throw new Error('No postId provided');
+          throw new Error('No tutorialId provided');
         }
       } catch (e) {
-        console.error("Error getting post with ID:", e);
+        console.error("Error getting tutorial with ID:", e);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchPost();
-  }, [postID]);
+    fetchTutorial();
+  }, [tutorialID]);
 
 
 
@@ -48,8 +51,8 @@ const EditPostPage: React.FC<Props> = () => {
     return <p>Loading...</p>;
   }
 
-  if (!currentPost) {
-    return <p>No post found</p>;
+  if (!currentTutorial) {
+    return <p>No Tutorial found</p>;
   }
 
   return (
@@ -60,8 +63,8 @@ const EditPostPage: React.FC<Props> = () => {
         onChange={e => setTitle(e.target.value)}
         value={title}
       />
-      <EditPostEditor
-        post={currentPost}
+      <EditTutorialEditor
+        tutorial={currentTutorial}
         title={title}
         setLoading={setLoading}
       />
@@ -71,4 +74,4 @@ const EditPostPage: React.FC<Props> = () => {
   );
 };
 
-export { EditPostPage  };
+export { EditTutorialPage  };

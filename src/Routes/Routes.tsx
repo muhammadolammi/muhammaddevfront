@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import {HomePage} from "../views/HomePage";
-import {Publish} from "../views/Publish";
-import { EditPost } from "../views/EditPostPage";
+import { PublishPostPage} from "../views/PublishPostPage";
+import { EditPostPage } from "../views/EditPostPage";
+import { EditTutorialPage } from "../views/EditTutorialPage";
+import { PublishTutorialPage } from "../views/PublishTutorialPage";
 
 
 const router = createBrowserRouter([
@@ -11,8 +13,11 @@ const router = createBrowserRouter([
         element:<App/>,
         children: [
             {   path: "",   element: <HomePage/> },
-            {   path: "publish",   element: <Publish/> },
-            { path: "editpost/:postId", element: <EditPost /> } // Add the dynamic route
+            {   path: "publishpost",   element: <PublishPostPage/> },
+            {   path: "publishtutorial",   element: <PublishTutorialPage/> },
+
+            { path: "editpost/:postID", element: <EditPostPage /> }, // Add the dynamic route
+            { path: "edittutorial/:tutorialID", element: <EditTutorialPage /> } 
 
         ]
     }

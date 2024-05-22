@@ -1,11 +1,12 @@
 import React from 'react';
-// import './index.css';
+import '../css/homepage.css'
+
 import { fetchTutorials } from '../db/tutorial';
 import { useState , useEffect} from 'react';
 import { Post, Tutorial } from '../models';
-import { Tutorials } from '../components/tutorials';
+import { Tutorials } from '../components/Tutorials';
 import { fetchPosts } from '../db/posts';
-import { Posts } from '../components/posts';
+import { Posts } from '../components/Posts';
 // import{Tutorial} from './models';
 
 const HomePage =() => {

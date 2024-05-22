@@ -6,7 +6,7 @@ import { Post } from '../models'
 import { fetchData } from './getData'
 const fetchPosts=  async ():Promise<Post[]> => {
     try{ 
-        const posts = await fetchData<[Post]>(`${apiUrl}/posts`??"", )
+        const posts = await fetchData<[Post]>(`${apiUrl}/posts` )
         
         
         return posts
@@ -49,7 +49,7 @@ const publishPost = async (post:Post) =>{
 const deletePost = async (postID:string) =>{
   
   try {
-    const response = await fetch(`${apiUrl}/posts/${postID}`, {
+    const response = await fetch(`${apiUrl}/post/${postID}`, {
       method: 'DELETE', // Specify the request method
 
       
@@ -66,7 +66,7 @@ const deletePost = async (postID:string) =>{
     // console.log('Post published successfully:', data);
 
   } catch (error) {
-    console.error('Error publishing post:', error);
+    console.error('Error deleting post:', error);
   }
  
    
@@ -77,7 +77,7 @@ const deletePost = async (postID:string) =>{
 const editPost = async (post:Post) =>{
   
   try {
-    const response = await fetch(`${apiUrl}/posts/${post.id}`, {
+    const response = await fetch(`${apiUrl}/post/${post.id}`, {
       method: 'PUT', // Specify the request method
 
       
@@ -94,7 +94,7 @@ const editPost = async (post:Post) =>{
     // console.log('Post published successfully:', data);
 
   } catch (error) {
-    console.error('Error publishing post:', error);
+    console.error('Error editing post:', error);
   }
  
    
@@ -102,7 +102,7 @@ const editPost = async (post:Post) =>{
 }
 
 
-const getPostWithId = async (id: string): Promise<Post> => {
+const getPostWithId = async (id: string) => {
   try {
     const response = await fetch(`${apiUrl}/post/${id}`, {
       method: 'GET'
@@ -113,7 +113,12 @@ const getPostWithId = async (id: string): Promise<Post> => {
     }
 
     const data = await response.json();
-    return data as Post;
+    // console.log("Fetched data:", data); // Log the entire fetched data
+    // // Ensure the data contains the expected properties
+    // if (!data.id || !data.content || !data.post_url || !data.thumbnail || !data.title) {
+    //   throw new Error("Fetched data is missing some properties");
+    // }
+    return data.data;
 
   } catch (error) {
     console.error('Error fetching post:', error);
@@ -121,4 +126,4 @@ const getPostWithId = async (id: string): Promise<Post> => {
   }
 };
 
-export{fetchPosts, publishPost, getPostWithId, editPost}
+export{fetchPosts, publishPost, getPostWithId, editPost, deletePost}

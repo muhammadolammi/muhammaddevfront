@@ -1,3 +1,6 @@
+
+
+
 const getPreviewContent = (content: string, wordLimit: number): string => {
   // Create a temporary DOM element to parse the HTML content
   const tempDiv = document.createElement('div');
