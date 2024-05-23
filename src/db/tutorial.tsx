@@ -121,7 +121,7 @@ const editTutorial = async (tutorial:Tutorial) =>{
 }
 
 
-const getTutorialWithId = async (id: string) => {
+const getTutorialWithId = async (id: string):Promise<Tutorial> => {
   try {
     const response = await fetch(`${apiUrl}/tutorial/${id}`, {
       method: 'GET'
@@ -133,7 +133,7 @@ const getTutorialWithId = async (id: string) => {
 
     const data = await response.json();
   
-    return data.data;
+    return data.data as Tutorial;
 
   } catch (error) {
     console.error('Error fetching Tutorial:', error);
@@ -141,6 +141,26 @@ const getTutorialWithId = async (id: string) => {
   }
 };
 
-export{fetchTutorials, publishTutorial, getTutorialWithId, editTutorial, deleteTutorial, fetchTutorialsFromPlaylist}
 
-export{}
+const getTutorialWithTitle = async (title: string):Promise<Tutorial> => {
+  try {
+    const response = await fetch(`${apiUrl}/gettutorial/${title}`, {
+      method: 'GET'
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+  
+    return data.data as Tutorial;
+
+  } catch (error) {
+    console.error('Error fetching Tutorial:', error);
+    throw error; // Ensure the error is propagated to the caller
+  }
+};
+
+export{fetchTutorials, publishTutorial, getTutorialWithId, editTutorial, deleteTutorial, fetchTutorialsFromPlaylist, getTutorialWithTitle}
+

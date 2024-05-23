@@ -3,9 +3,7 @@ import '../css/editorpage.css';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Post, Tutorial } from '../models';
-import { getPostWithId } from '../db/posts';
-import { EditPostEditor } from '../components/EditPostEditor';
-import { dataToPost } from '../helperfunc/dataToPost';
+
 import { getTutorialWithId } from '../db/tutorial';
 import { dataToTutorial } from '../helperfunc/datatToTutorial';
 import { EditTutorialEditor } from '../components/EditTutorialEditor';
@@ -68,7 +66,6 @@ const EditTutorialPage: React.FC<Props> = () => {
         title={title}
         setLoading={setLoading}
       />
-      <input type="file" />
       <br />
     </div>
   );

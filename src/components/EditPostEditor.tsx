@@ -10,6 +10,7 @@ import { checkImageExists, deleteImage, uploadImage } from '../db/images';
 import { Post } from '../models';
 import { editPost } from '../db/posts';
 import { mainUrl } from '../env';
+import { formatTitle } from '../helperfunc/formatTitle';
 
 const EditPostEditor: React.FC<{ 
   title: string, 
@@ -45,7 +46,7 @@ const EditPostEditor: React.FC<{
     
   const updatedPost = {
     id: post.id,
-    title: title,
+    title: formatTitle(title)  ,
     content: postContent,
     post_url: `${mainUrl}/posts/${title}`,
     thumbnail: thumbnail

@@ -4,9 +4,10 @@ import '../css/homepage.css'
 import { fetchTutorials } from '../db/tutorial';
 import { useState , useEffect} from 'react';
 import { Post, Tutorial } from '../models';
-import { Tutorials } from '../components/Tutorials';
 import { fetchPosts } from '../db/posts';
-import { Posts } from '../components/Posts';
+import { Contents } from '../components/Contents';
+import SizedBox from '../common/SizedBox';
+import NavBar from '../common/NavBar';
 // import{Tutorial} from './models';
 
 const HomePage =() => {
@@ -54,19 +55,18 @@ const HomePage =() => {
   
    return (
     <div className="Homepage">
-      <header className='header'>
-        <h1>Hi This is MuhammadDev Frontend</h1>
-      </header>
+    <NavBar />
       <div className="Body">
-      <div className="section-head">
+      <div className="contentsTitle">
             <h1>Tutorials</h1>
         </div>
-       <Tutorials loading={loading} tutorials={tutorials}/>
-
-       <div className="section-head">
+       <Contents loading={loading} contents={tutorials} contentsType='Tutorials'/>
+     <SizedBox  height={100}/>
+       <div className="contentsTitle">
             <h1>Posts</h1>
         </div>
-        <Posts loading={loading} posts={posts}/>
+   
+        <Contents loading={loading} contents={posts} contentsType='Posts'/>
 
       </div>
     </div>

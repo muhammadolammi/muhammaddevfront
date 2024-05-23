@@ -162,7 +162,7 @@ const PublishTutorialEditor: React.FC<{ title: string, setLoading: (loading: boo
 
     await publishTutorial({
       id: "",
-      title: title,
+      title:title,
       description: tutorialContent,
       tutorial_url: `${mainUrl}/tutorials/${title}`,
       thumbnail: thumbnail,

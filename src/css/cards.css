@@ -1,7 +1,7 @@
 
 /* STYLE TUTORIALS AND POSTS */
 
-.tutorials-container, .posts-container {
+.contents-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -9,7 +9,7 @@
     margin-top: 10px;
   }
   
-  .tutorial-card, .post-card {
+  .content-card {
     
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -21,19 +21,19 @@
     overflow: hidden; /* Hide overflowing content */
   }
   
-  .tutorial-card h2, .post-card h2 {
+  .content-card h2 {
     margin-top: 0;
     font-size: 1.5em;
   }
   
-  .tutorial-card p, .post-card p {
+  .content-card p {
     font-size: 1em;
     line-height: 1.5;
   }
   
   
   
-  .postOptions, .tutorialOptions{
+  .contentOptions{
     display: flex;
   }
   

@@ -27,7 +27,6 @@ const PublishTutorialPage = (props: Props) => {
         <PublishTutorialEditor 
         title={title}
         setLoading={setLoading}/>
-        <input type="file"  />
 <br></br>
         
       </div>

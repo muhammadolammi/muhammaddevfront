@@ -65,7 +65,6 @@ const EditPostPage: React.FC<Props> = () => {
         title={title}
         setLoading={setLoading}
       />
-      <input type="file" />
       <br />
     </div>
   );

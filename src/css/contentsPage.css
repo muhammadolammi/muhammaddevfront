@@ -1,0 +1,15 @@
+
+
+.Contents-Page{
+    margin: 50px;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+}
+.Contents-Page header{
+    width: 100%;
+}
+.contentsTitle{
+align-self: center;
+}
+

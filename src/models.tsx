@@ -27,3 +27,20 @@ export interface Tutorial  {
 }
 
 
+export const EmptyPost:Post = {
+	id: "",
+	title:"",
+	thumbnail:"",
+	content: "",
+	post_url:""
+}
+
+export const EmptyTutorial:Tutorial = {
+	id: "",
+	title:"",
+	thumbnail:"",
+	description: "",
+	tutorial_url:"",
+	youtube_link:"",
+	playlist_id:""
+}

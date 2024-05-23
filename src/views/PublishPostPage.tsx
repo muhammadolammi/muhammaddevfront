@@ -30,7 +30,7 @@ const PublishPostPage = (props: Props) => {
         <PublishPostEditor 
         title={title}
         setLoading={setLoading}/>
-        <input type="file"  />
+        
 <br></br>
         
       </div>

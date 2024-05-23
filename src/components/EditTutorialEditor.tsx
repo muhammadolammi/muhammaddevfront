@@ -11,6 +11,8 @@ import {  Tutorial } from '../models';
 import { mainUrl } from '../env';
 import { editTutorial } from '../db/tutorial';
 import { ShowPlaylistButton } from './ShowPlaylistButton';
+import { formatTitle } from '../helperfunc/formatTitle';
+
 
 const EditTutorialEditor: React.FC<{ 
   title: string, 
@@ -61,7 +63,7 @@ const EditTutorialEditor: React.FC<{
     
   const updatedTutorial = {
     id: tutorial.id,
-    title: title,
+    title: formatTitle(title)  ,
     description: tutorialDescription,
     tutorial_url: `${mainUrl}/tutorials/${title}`,
     thumbnail: thumbnail,

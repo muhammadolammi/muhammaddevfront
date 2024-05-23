@@ -102,7 +102,7 @@ const editPost = async (post:Post) =>{
 }
 
 
-const getPostWithId = async (id: string) => {
+const getPostWithId = async (id: string):Promise<Post> => {
   try {
     const response = await fetch(`${apiUrl}/post/${id}`, {
       method: 'GET'
@@ -118,7 +118,7 @@ const getPostWithId = async (id: string) => {
     // if (!data.id || !data.content || !data.post_url || !data.thumbnail || !data.title) {
     //   throw new Error("Fetched data is missing some properties");
     // }
-    return data.data;
+    return data.data as Post;
 
   } catch (error) {
     console.error('Error fetching post:', error);
@@ -126,4 +126,30 @@ const getPostWithId = async (id: string) => {
   }
 };
 
-export{fetchPosts, publishPost, getPostWithId, editPost, deletePost}
+
+
+const getPostWithTitle = async (title: string):Promise<Post> => {
+  try {
+    const response = await fetch(`${apiUrl}/getpost/${title}`, {
+      method: 'GET'
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    // console.log("Fetched data:", data); // Log the entire fetched data
+    // // Ensure the data contains the expected properties
+    // if (!data.id || !data.content || !data.post_url || !data.thumbnail || !data.title) {
+    //   throw new Error("Fetched data is missing some properties");
+    // }
+    return data.data as Post;
+
+  } catch (error) {
+    console.error('Error fetching post:', error);
+    throw error; // Ensure the error is propagated to the caller
+  }
+};
+
+export{fetchPosts, publishPost, getPostWithId, editPost, deletePost, getPostWithTitle}
