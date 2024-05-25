@@ -13,3 +13,26 @@
 align-self: center;
 }
 
+.playlistBar{
+    background-color: bisque;
+    width: 70%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .PlaylistCard{
+    background-color: black;
+    margin: 10px;
+    padding: 10px;
+    align-content: center;
+    justify-content: center;
+  }
+  .PlaylistCard h1{
+    font-size: smaller;
+    color: wheat;
+    height: 100%;
+    
+  }

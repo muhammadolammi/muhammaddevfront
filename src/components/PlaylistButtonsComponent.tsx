@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Playlist } from "../models";
-import { fetchPlaylists } from "../db/playlist";
+import { Playlist } from "../db/models";
+import { addPlaylist, fetchPlaylists } from "../db/playlist";
 import '../css/cards.css'
 
 
-export const ShowPlaylistButton: React.FC<{ 
+export const PlaylistButtonsComponent: React.FC<{ 
    setPlaylistId:(playlistId:string)=>void,
    playlistID:string
    
@@ -17,8 +17,7 @@ export const ShowPlaylistButton: React.FC<{
 
    
       const [showOptions, setShowOptions] = useState(false);
-      const[playlists, setPlaylists] = useState<Playlist[]>([])
-  
+      const[playlists, setPlaylists] = useState<Playlist[]>([]);
     const toggleOptions = () => {
       setShowOptions(!showOptions);
     };
@@ -67,6 +66,19 @@ export const ShowPlaylistButton: React.FC<{
                 <span>{playlist.name}</span>
               </div>
             ))}
+            
+          <input 
+            type="text" 
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                const target = e.target as HTMLInputElement;
+               const  playlist :Playlist = { id: "", name: target.value }
+                addPlaylist(playlist);
+                setPlaylists((prevPlaylists) => [...prevPlaylists, playlist]);
+
+              }
+            }} 
+          />
           </div>
         )}
       </div>

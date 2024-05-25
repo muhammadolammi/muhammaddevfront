@@ -1,7 +1,7 @@
 
 // import { resolveCaa } from 'dns'
 import{apiUrl} from '../env'
-import { Tutorial } from '../models'
+import { Tutorial } from './models'
 import { fetchData } from './getData'
 const fetchTutorials =  async ():Promise<Tutorial[]> => {
     try{ 

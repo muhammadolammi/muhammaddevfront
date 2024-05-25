@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Post } from '../models'
+import { Post } from '../db/models'
 import { apiUrl, mainUrl } from '../env'
 import { publishPost } from '../db/posts'
 import { uploadImage } from '../db/images'

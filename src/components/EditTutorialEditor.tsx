@@ -7,12 +7,13 @@ import Text from '@tiptap/extension-text';
 import { Editor, EditorContent, useEditor } from '@tiptap/react';
 import React, { useRef, useState, useEffect } from 'react';
 import { checkImageExists, deleteImage, uploadImage } from '../db/images';
-import {  Tutorial } from '../models';
+import {  Tutorial } from '../db/models';
 import { mainUrl } from '../env';
 import { editTutorial } from '../db/tutorial';
-import { ShowPlaylistButton } from './ShowPlaylistButton';
-import { formatTitle } from '../helperfunc/formatTitle';
 
+import { FormatTitle } from '../helperfunc/formatTitle';
+import SizedBox from '../common/SizedBox';
+import { PlaylistButtonsComponent } from './PlaylistButtonsComponent';
 
 const EditTutorialEditor: React.FC<{ 
   title: string, 
@@ -63,7 +64,7 @@ const EditTutorialEditor: React.FC<{
     
   const updatedTutorial = {
     id: tutorial.id,
-    title: formatTitle(title)  ,
+    title: FormatTitle(title)  ,
     description: tutorialDescription,
     tutorial_url: `${mainUrl}/tutorials/${title}`,
     thumbnail: thumbnail,
@@ -142,47 +143,7 @@ const EditTutorialEditor: React.FC<{
     }
   };
 
-  // const MenuBar = () => {
-  //   if (!editor) {
-  //     return null;
-  //   }
 
-  //   return (
-  //     <div className='editor-menu'>
-  //       <button
-  //         onClick={() => {
-  //           const url = window.prompt('URL');
-  //           if (url) {
-  //             editor.chain().focus().setImage({ src: url }).run();
-  //             setImages(prevImages => [...prevImages, url]); // Add the image URL to the state
-  //           }
-  //         }}
-  //       >
-  //         Add Image From URL
-  //       </button>
-  //       <button onClick={() => handleImageClick(imageInputRef)}>
-  //         Upload Image
-  //       </button>
-  //       <input
-  //         type="file"
-  //         accept="image/*"
-  //         ref={imageInputRef}
-  //         onChange={(e) => handleImageChange(e, editor)}
-  //         style={{ display: 'none' }}
-  //       />
-  //       <button onClick={() => handleImageClick(thumbnailInputRef)}>
-  //         Add Thumbnail
-  //       </button>
-  //       <input
-  //         type="file"
-  //         accept="image/*"
-  //         ref={thumbnailInputRef}
-  //         onChange={(e) => handleThumbnailChange(e)}
-  //         style={{ display: 'none' }}
-  //       />
-  //     </div>
-  //   );
-  // };
   
   const MenuBar = () => {
     if (!editor) {
@@ -234,7 +195,8 @@ const EditTutorialEditor: React.FC<{
         >
          Add Youtube Link
         </button>
-        <ShowPlaylistButton setPlaylistId={setPlaylistID} playlistID={playlistID} /> 
+        <PlaylistButtonsComponent setPlaylistId={setPlaylistID} playlistID={playlistID} /> 
+
       </div>
     );
   };
@@ -271,8 +233,10 @@ useEffect(() => {
   return (
     <div>
       <MenuBar />
+      <SizedBox height={100} />
       <EditorContent editor={editor} />
       <button onClick={onEdit}>Update</button>
+
     </div>
   );
 };

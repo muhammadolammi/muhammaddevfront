@@ -1,4 +1,4 @@
-import { Post } from "../models";
+import { Post } from "../db/models";
 
 const dataToPost =(data:any):Post=>{
     return {

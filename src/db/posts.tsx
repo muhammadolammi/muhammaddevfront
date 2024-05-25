@@ -2,7 +2,7 @@
 // import { resolveCaa } from 'dns'
 // import { useNavigate } from 'react-router-dom';
 import{apiUrl} from '../env'
-import { Post } from '../models'
+import { Post } from './models'
 import { fetchData } from './getData'
 const fetchPosts=  async ():Promise<Post[]> => {
     try{ 

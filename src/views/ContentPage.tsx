@@ -4,10 +4,12 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { F404Page } from '../common/F404Page'
 import {  getPostWithTitle } from '../db/posts'
-import { EmptyPost, EmptyTutorial, Post, Tutorial } from '../models'
+import { EmptyPost, EmptyTutorial, Post, Tutorial } from '../db/models'
 import {  getTutorialWithTitle } from '../db/tutorial'
 import DOMPurify from 'dompurify'
 import '../css/contentPage.css'
+import { ReFormatTitle } from '../helperfunc/formatTitle'
+import NavBar from '../common/NavBar'
 
 type Props = {}
 
@@ -66,19 +68,21 @@ const ContentPage = (props: Props) => {
      
      
          fetchContent()
-         console.log(title)
       },[])
 // Handle for posts
    if(post!=EmptyPost){
   
    
         return (
+            <>
+            <NavBar />
+
             <div className="ContentPage">
-                <h1 className="ContentTitle"> {post.title}</h1>
+                <h1 className="ContentTitle"> {ReFormatTitle(post.title)}</h1>
                 <div className="ContentBody"  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}>
                
                 </div>
-            </div>
+            </div> </>
         )
     
    
@@ -89,7 +93,7 @@ const ContentPage = (props: Props) => {
 if(tutorial !=EmptyTutorial){
         return (
             <div className="ContentPage">
-                <h1 className="ContentTitle"> {tutorial.title}</h1>
+                <h1 className="ContentTitle"> {ReFormatTitle(tutorial.title)}</h1>
                 <div className="ContentBody" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(tutorial.description)  }}>
                
                 </div>

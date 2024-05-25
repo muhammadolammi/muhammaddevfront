@@ -11,7 +11,8 @@ import React, { useRef, useState, useEffect } from 'react'
 import { checkImageExists, deleteImage, uploadImage } from '../db/images'
 import { mainUrl } from '../env'
 import { publishTutorial } from '../db/tutorial'
-import { ShowPlaylistButton } from './ShowPlaylistButton'
+import { PlaylistButtonsComponent } from './PlaylistButtonsComponent'
+import { FormatTitle } from '../helperfunc/formatTitle'
 
 const PublishTutorialEditor: React.FC<{ title: string, setLoading: (loading: boolean) => void }> = ({ title, setLoading }) => {
   const [thumbnail, setThumbnail] = useState("")
@@ -131,7 +132,7 @@ const PublishTutorialEditor: React.FC<{ title: string, setLoading: (loading: boo
         >
          Add Youtube Link
         </button>
-        <ShowPlaylistButton  setPlaylistId={setPlaylistID} playlistID={playlistID} /> 
+        <PlaylistButtonsComponent  setPlaylistId={setPlaylistID} playlistID={playlistID} /> 
       </div>
     );
   };
@@ -162,7 +163,7 @@ const PublishTutorialEditor: React.FC<{ title: string, setLoading: (loading: boo
 
     await publishTutorial({
       id: "",
-      title:title,
+      title:FormatTitle(title),
       description: tutorialContent,
       tutorial_url: `${mainUrl}/tutorials/${title}`,
       thumbnail: thumbnail,
@@ -206,6 +207,7 @@ const PublishTutorialEditor: React.FC<{ title: string, setLoading: (loading: boo
       <MenuBar />
       <EditorContent editor={editor} />
       <button onClick={() => onPublish(title)}>Publish</button>
+      
     </div>
   );
 };

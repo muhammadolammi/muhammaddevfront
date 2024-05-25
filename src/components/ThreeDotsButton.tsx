@@ -6,19 +6,19 @@ import { deleteTutorial } from "../db/tutorial";
 
 export const ThreeDotButton: React.FC<{ 
     contentType: string, 
-   contentId:string}> = ({ contentType, contentId })=>{
+   contentId:string, contentTitle:string}> = ({ contentType, contentId , contentTitle})=>{
    const navigate = useNavigate()
-    const onEdit=(contentId: string) =>{
+    const onEdit=() =>{
         if(contentType==='Tutorial') {
             // TODO delete Tutorial
-            navigate(`/edittutorial/${contentId}`)
+            navigate(`/edittutorial/${contentTitle}`)
         }
         if(contentType==='Post') {
-            navigate(`/editpost/${contentId}`)
+            navigate(`/editpost/${contentTitle}`)
         }
 
     }
-    const onDelete= async(contentId: string) =>{
+    const onDelete= async() =>{
         if(contentType==='Tutorial') {
             // TODO delete Tutorial
             alert("This will Permanently Delete this utorial Data!!!")
@@ -52,8 +52,8 @@ export const ThreeDotButton: React.FC<{
         <button onClick={toggleOptions}>&#8942;</button>
         {showOptions && (
           <div className="options-container">
-            <button onClick={()=>{onEdit(contentId)}}>Edit {contentType}</button>
-            <button onClick={()=>{onDelete(contentId)}}>Delete {contentType}</button>
+            <button onClick={()=>{onEdit()}}>Edit {contentType}</button>
+            <button onClick={()=>{onDelete()}}>Delete {contentType}</button>
             {/* Add more options here */}
           </div>
         )}

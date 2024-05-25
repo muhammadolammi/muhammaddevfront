@@ -10,6 +10,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { checkImageExists, deleteImage, uploadImage } from '../db/images'
 import { publishPost } from '../db/posts'
 import { mainUrl } from '../env'
+import { FormatTitle } from '../helperfunc/formatTitle'
 
 const PublishPostEditor: React.FC<{ title: string, setLoading: (loading: boolean) => void }> = ({ title, setLoading }) => {
   const [thumbnail, setThumbnail] = useState("")
@@ -134,7 +135,7 @@ const PublishPostEditor: React.FC<{ title: string, setLoading: (loading: boolean
 
     await publishPost({
       id: "",
-      title: title,
+      title: FormatTitle(title),
       content: postContent,
       post_url: `${mainUrl}/posts/${title}`,
       thumbnail: thumbnail

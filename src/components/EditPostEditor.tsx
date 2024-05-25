@@ -7,16 +7,16 @@ import Text from '@tiptap/extension-text';
 import { Editor, EditorContent, useEditor } from '@tiptap/react';
 import React, { useRef, useState, useEffect } from 'react';
 import { checkImageExists, deleteImage, uploadImage } from '../db/images';
-import { Post } from '../models';
+import { Post } from '../db/models';
 import { editPost } from '../db/posts';
 import { mainUrl } from '../env';
-import { formatTitle } from '../helperfunc/formatTitle';
+import { FormatTitle } from '../helperfunc/formatTitle';
 
 const EditPostEditor: React.FC<{ 
   title: string, 
   setLoading: (loading: boolean) => void, 
   post: Post 
-}> = ({ title, setLoading, post }) => {
+}> =  ({ title, setLoading, post }) => {
   const [thumbnail, setThumbnail ]= useState("")
   const [images, setImages] = useState<string[]>([]) // State to track images in the editor
 
@@ -46,7 +46,7 @@ const EditPostEditor: React.FC<{
     
   const updatedPost = {
     id: post.id,
-    title: formatTitle(title)  ,
+    title: FormatTitle(title)  ,
     content: postContent,
     post_url: `${mainUrl}/posts/${title}`,
     thumbnail: thumbnail

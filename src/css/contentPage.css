@@ -1,7 +1,12 @@
 .ContentPage{
 display: flex;
 flex-direction: column;
-margin: 50px;
+margin: 15%;
+padding: 20px;
+margin-top: 10px;
+border-style:  solid;
+
+
 }
 .ContentPage img{
     display: block;
@@ -11,4 +16,7 @@ margin: 50px;
   margin-right: auto;
   width: 50%;
   max-height: 300px;
+  border-style:  solid;
 }
+
+

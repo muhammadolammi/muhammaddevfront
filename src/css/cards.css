@@ -61,6 +61,10 @@
 }
 
 
-.playlist-container{
-  z-index: 10; 
+.playlist-container {
+  max-height: 100px; /* Set the desired maximum height */
+  overflow-y: auto;  /* Enable vertical scrolling */
+  border: 1px solid #ccc; /* Optional: Add a border for visual separation */
+  padding: 10px; /* Optional: Add padding for spacing */
+  box-sizing: border-box; /* Ensure padding and border are included in the total height */
 }

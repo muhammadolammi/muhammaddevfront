@@ -2,15 +2,16 @@ import '../css/editorpage.css';
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Post } from '../models';
-import { getPostWithId } from '../db/posts';
+import { Post } from '../db/models';
+import { getPostWithId, getPostWithTitle } from '../db/posts';
 import { EditPostEditor } from '../components/EditPostEditor';
 import { dataToPost } from '../helperfunc/dataToPost';
+import { ReFormatTitle } from '../helperfunc/formatTitle';
 
 type Props = {};
 
 const EditPostPage: React.FC<Props> = () => {
-  const { postID } = useParams<{ postID: string }>(); // Extract postId from the URL
+  const { postTitle } = useParams<{ postTitle: string }>(); // Extract postId from the URL
   const [title, setTitle] = useState("");
   // const [thumbnail, setThumbnail] = useState("");
   const [loading, setLoading] = useState<boolean>(true);
@@ -19,8 +20,8 @@ const EditPostPage: React.FC<Props> = () => {
   useEffect(() => { 
     const fetchPost = async () => {
       try {
-        if (postID) {
-          const postData = await getPostWithId(postID);
+        if (postTitle) {
+          const postData = await getPostWithTitle(postTitle);
           
           setTitle(postData.title);
           // setThumbnail(postData.thumbnail);
@@ -40,7 +41,7 @@ const EditPostPage: React.FC<Props> = () => {
     };
 
     fetchPost();
-  }, [postID]);
+  }, [postTitle]);
 
 
 
@@ -58,11 +59,11 @@ const EditPostPage: React.FC<Props> = () => {
         id='title-input'
         placeholder='Title'
         onChange={e => setTitle(e.target.value)}
-        value={title}
+        value={ReFormatTitle(title)}
       />
       <EditPostEditor
         post={currentPost}
-        title={title}
+        title={ReFormatTitle(title)}
         setLoading={setLoading}
       />
       <br />

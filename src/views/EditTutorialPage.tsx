@@ -2,16 +2,17 @@ import '../css/editorpage.css';
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Post, Tutorial } from '../models';
+import { Post, Tutorial } from '../db/models';
 
-import { getTutorialWithId } from '../db/tutorial';
+import { getTutorialWithId, getTutorialWithTitle } from '../db/tutorial';
 import { dataToTutorial } from '../helperfunc/datatToTutorial';
 import { EditTutorialEditor } from '../components/EditTutorialEditor';
+import { ReFormatTitle } from '../helperfunc/formatTitle';
 
 type Props = {};
 
 const EditTutorialPage: React.FC<Props> = () => {
-  const { tutorialID } = useParams<{ tutorialID: string }>(); // Extract postId from the URL
+  const { tutorialTitle } = useParams<{ tutorialTitle: string }>(); // Extract postId from the URL
   const [title, setTitle] = useState("");
   // const [thumbnail, setThumbnail] = useState("");
   const [loading, setLoading] = useState<boolean>(true);
@@ -20,8 +21,8 @@ const EditTutorialPage: React.FC<Props> = () => {
   useEffect(() => { 
     const fetchTutorial = async () => {
       try {
-        if (tutorialID) {
-          const tutorialData = await getTutorialWithId(tutorialID);
+        if (tutorialTitle) {
+          const tutorialData = await getTutorialWithTitle(tutorialTitle);
           
           setTitle(tutorialData.title);
           // setThumbnail(postData.thumbnail);
@@ -41,7 +42,7 @@ const EditTutorialPage: React.FC<Props> = () => {
     };
 
     fetchTutorial();
-  }, [tutorialID]);
+  }, [tutorialTitle]);
 
 
 
@@ -59,11 +60,11 @@ const EditTutorialPage: React.FC<Props> = () => {
         id='title-input'
         placeholder='Title'
         onChange={e => setTitle(e.target.value)}
-        value={title}
+        value={ReFormatTitle(title)}
       />
       <EditTutorialEditor
         tutorial={currentTutorial}
-        title={title}
+        title={ReFormatTitle(title)}
         setLoading={setLoading}
       />
       <br />

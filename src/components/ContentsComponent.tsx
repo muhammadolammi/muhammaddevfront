@@ -6,6 +6,7 @@ import { ThreeDotButton } from './ThreeDotsButton';
 import { ContentsType } from '../common/ContentsType';
 import { useNavigate } from 'react-router';
 import SizedBox from '../common/SizedBox';
+import { ReFormatTitle } from '../helperfunc/formatTitle';
 
 
 const ContentCard: React.FC<{ contentsType:string, contentId:string, contentTitle:string, contentThumbnail:string }>= ({contentsType, contentId, contentTitle, contentThumbnail})=> {
@@ -31,7 +32,7 @@ const navigate = useNavigate()
     <div className="content-card" >
    
       <div className="content-options">
-      <ThreeDotButton contentType={contentType} contentId={contentId}  />
+      <ThreeDotButton contentType={contentType} contentId={contentId}  contentTitle={contentTitle} />
       </div>
       <div onClick={()=>navigate(`/${contentsType}/${encodeURIComponent(contentTitle)}`)}>
      
@@ -45,14 +46,14 @@ const navigate = useNavigate()
     
      </div>
      <SizedBox height={30}/>
-      <h2>{contentTitle}</h2>
+      <h2>{ReFormatTitle(contentTitle)}</h2>
       </div>
       {/* <p>{  getPreviewContent(post.content,  50)}</p> */}
     </div>
   );
 };
 
-  function Contents ({ loading, contents, contentsType }: { loading: boolean; contents: ContentsType[], contentsType:string }) {
+  function ContentsComponent ({ loading, contents, contentsType }: { loading: boolean; contents: ContentsType[], contentsType:string }) {
    
  return   <div className="contents-container">
 
@@ -60,7 +61,6 @@ const navigate = useNavigate()
     {
     loading? (<p>Loading...</p>):contents.length > 0 ?( contents.map((content) => (
     
-     
      
       <ContentCard key={content.id} contentsType={contentsType.toLowerCase()} contentId={content.id} contentTitle={content.title} contentThumbnail={content.thumbnail} />
    
@@ -72,4 +72,4 @@ const navigate = useNavigate()
   </div>
   }
 
-  export{Contents}
+  export{ContentsComponent}

@@ -110,3 +110,7 @@ Basic editor styles
 .HiddenButton{
   display: none;
 }
+
+.editor-menu{
+  max-height: 70px;
+}

@@ -5,9 +5,12 @@ import { PublishPostPage} from "../views/PublishPostPage";
 import { EditPostPage } from "../views/EditPostPage";
 import { EditTutorialPage } from "../views/EditTutorialPage";
 import { PublishTutorialPage } from "../views/PublishTutorialPage";
-import ContentsPage from "../views/ContentsPage";
+import ContentsPage from "../views/PostsPage";
 import { F404Page } from "../common/F404Page";
 import {ContentPage} from "../views/ContentPage";
+import { PlaylistsPage } from "../views/PlaylistsPage";
+import TutorialsPage from "../views/TutorialsPage";
+import PostsPage from "../views/PostsPage";
 
 
 const router = createBrowserRouter([
@@ -19,10 +22,16 @@ const router = createBrowserRouter([
             {   path: "publishpost",   element: <PublishPostPage/> },
             {   path: "publishtutorial",   element: <PublishTutorialPage/> },
 
-            { path: "editpost/:postID", element: <EditPostPage /> }, // Add the dynamic route
-            { path: "edittutorial/:tutorialID", element: <EditTutorialPage /> } ,
-            {path:"/:contentsType", element:<ContentsPage/>},
-            {path:"/:contentType/:title", element:<ContentPage />},
+            { path: "editpost/:postTitle", element: <EditPostPage /> }, // Add the dynamic route
+            { path: "edittutorial/:tutorialTitle", element: <EditTutorialPage /> } ,
+            {path:"/tutorials", element:<TutorialsPage/>},
+
+            // {path:"/tutorials/:title", element:<TutorialPage />},
+
+            {path:"/posts", element:<PostsPage/>},
+            // {path:"/posts/:title", element:<PostPage />},
+
+            {path:"playlists", element:<PlaylistsPage />}
 
 
         ],

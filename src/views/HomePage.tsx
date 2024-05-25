@@ -1,13 +1,18 @@
 import React from 'react';
-import '../css/homepage.css'
+import "../css/homepage.css"
+
 
 import { fetchTutorials } from '../db/tutorial';
 import { useState , useEffect} from 'react';
-import { Post, Tutorial } from '../models';
+import { Post, Tutorial } from '../db/models';
 import { fetchPosts } from '../db/posts';
-import { Contents } from '../components/Contents';
+import { ContentsComponent } from '../components/ContentsComponent';
 import SizedBox from '../common/SizedBox';
 import NavBar from '../common/NavBar';
+import placeholder from '../images/placeholder.png'; // Import the placeholder image
+import { FieldContainer } from '../components/FieldContainer';
+
+
 // import{Tutorial} from './models';
 
 const HomePage =() => {
@@ -23,7 +28,7 @@ const HomePage =() => {
     const getTutorials = async () => {
       try {
         const tutorialList = await fetchTutorials();
-        console.log(tutorialList); // Check what tutorialList contains
+        // console.log(tutorialList); // Check what tutorialList contains
         setTutorials(tutorialList);
         setLoading(false);
       } catch (error) {
@@ -37,7 +42,7 @@ const HomePage =() => {
     const getPosts = async () => {
       try {
         const postList = await fetchPosts();
-        console.log(postList); // Check what tutorialList contains
+        // console.log(postList); // Check what tutorialList contains
         setPosts(postList);
         setLoading(false);
       } catch (error) {
@@ -55,21 +60,113 @@ const HomePage =() => {
   
    return (
     <div className="Homepage">
-    <NavBar />
-      <div className="Body">
+   <NavBar />
+      {/* The Me Box */}
+      <div className="Container ">
+      <div className="Me-Box">
+        <div className="Intro">
+        Hi, I'm
+       
+        </div>
+       
+       <div className="Name">
+       Muhammad Akewukanwo
+        </div> 
+        <div className="Proffesion">
+        Full stack Developer & DevOps Engineer
+        </div>
+      <div className="About">
+      Passionate about building scalable web applications and optimizing system operations. With extensive experience in both front-end and back-end development, and a deep understanding of DevOps practices, I strive to deliver seamless user experiences and robust infrastructure solutions.
+
+        </div> 
+        <div className="Buttons">
+         
+          <button>Check My Resume</button>
+          <button>Contact Me</button>
+       
+        
+          </div> 
+
+      
+      </div>
+      </div>
+
+      {/* The About Box */}
+      <div className="AboutMe-Container">
+          <div className="AboutMe-Box">
+                  <div className="AboutMe-Title">About Me</div>
+                  <div className="AboutMe-Details">
+                   <div className="AboutMe-Content">
+                   <div className="AboutMe-ContentText">
+                     <b>I am</b> a dedicated and skilled Full Stack Developer and DevOps Engineer with a passion for coding and a knack for problem-solving. My journey in the tech world has equipped me with a comprehensive skill set that spans across various programming languages and development tools. I enjoy turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies or sharing my knowledge through tutorials and blogs.
+          
+                    </div>
+
+                   
+                  
+                  <button className='AboutMe-ContentButton'>Read My Resume</button>
+                   </div>
+                    <div className="AboutMe-DetailsImage">
+                    <img  src={placeholder} alt="" />
+                    </div>
+                    
+                    
+                  </div>
+            </div>
+      </div>
+     {/* Fields and Skills */}
+     <div className="Container">
+      <div className="Skills-Box">
+        <div className="Title">
+        Skills
+        </div>
+       <div className="Field-Containers">
+     <div className="FirstColumn">
+     <FieldContainer fieldName='Back-end Development' skills={[
+          {skill:"Golang", description:"Programming", logo:placeholder},
+          {skill:"Docker", description:"Containerization", logo:placeholder},
+          {skill:"Golang", description:"Programming", logo:placeholder},
+          {skill:"Docker", description:"Containerization", logo:placeholder},
+          {skill:"Golang", description:"Programming", logo:placeholder},
+          {skill:"Docker", description:"Containerization", logo:placeholder},
+          ]} height={517}/>
+     </div>
+     <div className="Second-Column">
+     <FieldContainer fieldName='Front-end Development' skills={[
+            {skill:"React TypeScript", description:"Programming", logo:placeholder},
+          {skill:"Flutter", description:"Programming", logo:placeholder},
+          ]} height={294}/>
+          
+          <FieldContainer fieldName='Dev Ops' skills={[
+          {skill:"Github Actions", description:"Ci/CD", logo:placeholder},
+          
+          ]} height={196}/>
+     </div>
+
+
+         
+         
+           {/* <FieldContainer fieldName='Dev Ops' skills={[
+          {skill:"Github Actions", description:"Ci/CD Tool"},
+          
+          ]} /> */}
+          
+       </div>
+      </div>
+     </div>
       <div className="contentsTitle">
             <h1>Tutorials</h1>
         </div>
-       <Contents loading={loading} contents={tutorials} contentsType='Tutorials'/>
+       <ContentsComponent loading={loading} contents={tutorials} contentsType='Tutorials'/>
      <SizedBox  height={100}/>
        <div className="contentsTitle">
             <h1>Posts</h1>
         </div>
    
-        <Contents loading={loading} contents={posts} contentsType='Posts'/>
+        <ContentsComponent loading={loading} contents={posts} contentsType='Posts'/>
 
       </div>
-    </div>
+    
   );
 }
 

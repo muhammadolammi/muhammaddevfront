@@ -1,4 +1,4 @@
-import {  Tutorial } from "../models";
+import {  Tutorial } from "../db/models";
 
 const dataToTutorial =(data:any):Tutorial=>{
     return {
