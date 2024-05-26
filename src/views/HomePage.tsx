@@ -11,6 +11,7 @@ import SizedBox from '../common/SizedBox';
 import NavBar from '../common/NavBar';
 import placeholder from '../images/placeholder.png'; // Import the placeholder image
 import { FieldContainer } from '../components/FieldContainer';
+import SectionTitle from '../common/SectionTitle';
 
 
 // import{Tutorial} from './models';
@@ -61,6 +62,7 @@ const HomePage =() => {
    return (
     <div className="Homepage">
    <NavBar />
+  <div className="Body">
       {/* The Me Box */}
       <div className="Container ">
       <div className="Me-Box">
@@ -73,19 +75,20 @@ const HomePage =() => {
        Muhammad Akewukanwo
         </div> 
         <div className="Proffesion">
-        Full stack Developer & DevOps Engineer
+       Software Engineer
         </div>
       <div className="About">
       Passionate about building scalable web applications and optimizing system operations. With extensive experience in both front-end and back-end development, and a deep understanding of DevOps practices, I strive to deliver seamless user experiences and robust infrastructure solutions.
 
         </div> 
-        <div className="Buttons">
+        <button>Contact Me</button>
+        {/* <div className="Buttons">
          
           <button>Check My Resume</button>
           <button>Contact Me</button>
        
         
-          </div> 
+          </div>  */}
 
       
       </div>
@@ -94,17 +97,19 @@ const HomePage =() => {
       {/* The About Box */}
       <div className="AboutMe-Container">
           <div className="AboutMe-Box">
-                  <div className="AboutMe-Title">About Me</div>
+            <SectionTitle title='About Me'/>
                   <div className="AboutMe-Details">
                    <div className="AboutMe-Content">
                    <div className="AboutMe-ContentText">
-                     <b>I am</b> a dedicated and skilled Full Stack Developer and DevOps Engineer with a passion for coding and a knack for problem-solving. My journey in the tech world has equipped me with a comprehensive skill set that spans across various programming languages and development tools. I enjoy turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies or sharing my knowledge through tutorials and blogs.
-          
+                  <span>
+                     <b>I am</b> a dedicated and skilled SoftWare Engineer with a passion for coding and a knack for problem-solving. My journey in the tech world has equipped me with a comprehensive skill set that spans across various programming languages and development tools. I enjoy turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies or sharing my knowledge through tutorials and blogs.
+                   </span>
                     </div>
 
                    
                   
                   <button className='AboutMe-ContentButton'>Read My Resume</button>
+                 
                    </div>
                     <div className="AboutMe-DetailsImage">
                     <img  src={placeholder} alt="" />
@@ -115,45 +120,40 @@ const HomePage =() => {
             </div>
       </div>
      {/* Fields and Skills */}
-     <div className="Container">
-      <div className="Skills-Box">
-        <div className="Title">
-        Skills
-        </div>
-       <div className="Field-Containers">
-     <div className="FirstColumn">
-     <FieldContainer fieldName='Back-end Development' skills={[
-          {skill:"Golang", description:"Programming", logo:placeholder},
-          {skill:"Docker", description:"Containerization", logo:placeholder},
-          {skill:"Golang", description:"Programming", logo:placeholder},
-          {skill:"Docker", description:"Containerization", logo:placeholder},
-          {skill:"Golang", description:"Programming", logo:placeholder},
-          {skill:"Docker", description:"Containerization", logo:placeholder},
-          ]} height={517}/>
-     </div>
-     <div className="Second-Column">
+     <div className="Skills-Container">
+       <SectionTitle title='Skills'/>
+        <div className="Fields-list">
+          <FieldContainer fieldName='Back-end Development' skills={[
+          {skill:"Golang", description:"Advance", logo:placeholder},
+          {skill:"Docker", description:"Advance", logo:placeholder},
+          {skill:"Golang", description:"Advance", logo:placeholder},
+          {skill:"Docker", description:"Advance", logo:placeholder},
+          {skill:"Golang", description:"Advance", logo:placeholder},
+          {skill:"Docker", description:"Advance", logo:placeholder},
+          ]} height={419}/>
      <FieldContainer fieldName='Front-end Development' skills={[
-            {skill:"React TypeScript", description:"Programming", logo:placeholder},
-          {skill:"Flutter", description:"Programming", logo:placeholder},
+            {skill:"React TypeScript", description:"Advance", logo:placeholder},
+          {skill:"Flutter", description:"Advance", logo:placeholder},
           ]} height={294}/>
           
           <FieldContainer fieldName='Dev Ops' skills={[
-          {skill:"Github Actions", description:"Ci/CD", logo:placeholder},
+          {skill:"Github Actions", description:"Advance", logo:placeholder},
           
           ]} height={196}/>
-     </div>
-
-
-         
+    
+        </div>
          
            {/* <FieldContainer fieldName='Dev Ops' skills={[
           {skill:"Github Actions", description:"Ci/CD Tool"},
           
           ]} /> */}
-          
-       </div>
-      </div>
      </div>
+
+{/* Projects */}
+<div className="Projects-Container">
+<SectionTitle title='Projects'/>
+
+</div>
       <div className="contentsTitle">
             <h1>Tutorials</h1>
         </div>
@@ -166,7 +166,7 @@ const HomePage =() => {
         <ContentsComponent loading={loading} contents={posts} contentsType='Posts'/>
 
       </div>
-    
+  </div>  
   );
 }
 

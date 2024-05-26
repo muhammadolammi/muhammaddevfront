@@ -12,7 +12,7 @@ type Props = {
 }
 
 const FieldContainer = (props: Props) => {
-  return <div className='Field-Container' style={{height:`${props.height??700}px`}}>  
+  return <div className='Field-Container' style={{height:`${props.height??"auto"}px`}}>  
   <div className="FieldName">{props.fieldName}</div>
   <div className="Skills">
    {
@@ -25,8 +25,7 @@ const FieldContainer = (props: Props) => {
       </div>
      
      </div>
-      <SizedBox width={30}/>
-      <div className="SkillDescr"> {skill.description}</div>
+      <div className="SkillDescr"> <span>{skill.description}</span></div>
       </div>
     ))
 }</div> 

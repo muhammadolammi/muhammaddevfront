@@ -38,6 +38,10 @@ const TutorialsPage =  (props: Props) => {
           setCurrentPlaylist(playlistData)
           fetchPlaylists().then((playlists)=>{
             setPlaylists(playlists)
+          }).catch((e)=>{
+            console.log(e)
+          }).catch((e)=>{
+            console.log(e)
           })
 
         

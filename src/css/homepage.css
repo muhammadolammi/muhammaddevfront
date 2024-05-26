@@ -1,9 +1,17 @@
 .Homepage {
   background: black;
   } 
-  /* .Body{
-   margin: 50px;
-  } */
+
+  .Container{
+    max-width: 1100px;
+    margin:0 auto ;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+  
+  .Body{
+   margin:0 auto;
+  } 
  
   
  .Me-Box{
@@ -70,9 +78,8 @@
   margin-top: 20px;
   
  }
-
- .Me-Box .Buttons button{
-  margin-top: 10px;
+ .Me-Box button{
+  margin-top: 30px;
   height: 65px;
   width: 171px;
   border-radius: 20px;
@@ -82,14 +89,10 @@
  }
 
  .AboutMe-Container{
-  /* max-width: 1100px; */
-  /* padding: 0 30px;
-  box-sizing: border-box;
-  margin: 0 auto; */
+  
 
   max-width: 1100px;
   margin:0 auto ;
-  margin-left: 30px;
   padding: 0 30px;
   box-sizing: border-box;
   
@@ -97,31 +100,21 @@
  
  .AboutMe-Box{
   margin-top: 130px;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 430px;
-  
- }
-.AboutMe-Title{
-  height: 59px;
-  font-size: 3.3em;
-  color: #F0F2F5;
-  font-family: 'Coolvetica', sans-serif;
-  box-sizing: border-box;
-  margin-bottom: 50px;
-}
- .AboutMe-Details{
-  display: flex;
-  /* justify-content: center;
-  align-items: center; */
-  padding: auto;
+  gap: 50px;
+   margin-left: 60px;  
  }
 
- .AboutMe-Content{
-height: 350px;
+ .AboutMe-Details{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(500px auto);
+  gap: 40px;
  }
+
+
 
  .AboutMe-ContentText{
   b{
@@ -129,14 +122,18 @@ height: 350px;
     font-size: 2em;
   }
   width: 513px;
-  line-height: 29px;
   height: 258px;
   text-wrap: wrap;
-  padding-right:93px ;
-  color: #B0B0B0;
   font-family: 'Poppings';
+  text-align: left;
   
   margin-top: 30px;
+   span{
+    line-height: 29px;
+    padding-top: 0;
+    color: #B0B0B0;
+    
+   }
 
 
  }
@@ -149,6 +146,7 @@ height: 350px;
   color: #161513;
   border-radius: 15px;
   font-weight: bold;
+  box-sizing: border-box;
  }
  
 
@@ -156,103 +154,138 @@ height: 350px;
 
  .AboutMe-DetailsImage{
   width: 442.15px;
-  height: 350px;
- }
+  /* align-self: self-start;
+  margin-top: auto; */
+  height: 100px;
+  margin-left: 60px;
+  margin-top: 60px;
 
 
+  img{
+   
 
-.Skills-Box{
-  margin-top: 130px;
-  display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- 
-
-  
- .Title{
-  padding-top: 20px;
-  font-family: 'Coolvetica', sans-serif;
-  color: #F0F2F5;
-  font-size: 2em;
-  padding-bottom: 45px;
- }
-}
-
-.Field-Containers{
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  margin-left: 100px;
-  margin-right: 50px;
- 
-  
-  
-  .Field-Container{
-    background: #181818;
-    margin: 20px;
-    width: 400px;
-    min-height: 196px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
-
-    .FieldName{
-      font-size: 1.6em;
-      color: #78ADFE;
-      text-wrap: wrap;
-      width: 258px;
-      text-align: center;
-      padding-top: 25px;
-    }
-    .Skills{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-      .Skill{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 300px;
-        height: 56px;
-        box-sizing: border-box;
-
-        .SkillName{
-          display: flex;
-          color: #B0B0B0;
-          img{
-             max-height: 10px;
-             padding-right: 5px;
-          }
-          
-        }
-        .SkillDescr{
-          color:  #7D7D7D;
-          background:#111;
-          border-radius: 3px;
-          height: 15px;
-          width: 60px;
-          box-sizing: border-box;
-          /* height: 15px; */
-          font-size: 7px;
-                    text-align: center;
-          padding-top: 2px;
-          
-          font-weight: bold;
-          align-items: center;
-
-        }
-      }
-    }
-    
   }
   
+ }
+
+
+
+.Skills-Container{
+
+  max-width: 1100px;
+  margin:0 auto ;
+  margin-top: 90px;
+  padding: 0 30px;
+    color: white;
+  background-color: transparent;
+box-sizing: border-box;
+
+
+  
+}
+
+.Fields-list {
+  display: grid;
+  gap: 20px;
+  grid-template-areas:
+    'backend frontend'
+    'backend devops';
+    /* grid-template-columns: 1fr 1fr;
+    grid-template-rows: 500px 200px; */
+    grid-template-columns: 1fr 1fr;
+    box-sizing: border-box;
+    justify-content: center;
+
+  padding: 20px;
+  margin: 40px;
+}
+
+/* Apply grid-area to the child elements */
+.Field-Container:nth-of-type(1) {
+  grid-area: backend;
+}
+.Field-Container:nth-of-type(2) {
+  grid-area: frontend;
+}
+.Field-Container:nth-of-type(3) {
+  grid-area: devops;
 }
 
 
+
+
+
+
+
+
+
+
+.Field-Container{
+   border-radius: 15px;
+   background: #111;
+   display: flex;
+   flex-direction: column;
+   color: white;
+   /* overflow: hidden;  */
+   padding: 20px;
+   box-sizing: border-box;
+   overflow: hidden;
+}
+
+.Field-Container .FieldName{
+  font-size: 1.6em;
+  margin: auto;
+  margin-top: 10px ;
+  font-weight: bold;
+  color: #78ADFE;
+  text-wrap: wrap;
+  width: 258px;
+  text-align: center;
+}
+
+.Skills{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  margin-bottom: auto;
+ 
+}
+.Skill {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+.SkillName{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+  #SkillName{
+    color : #B0B0B0;
+    font-weight: 16px;
+    /* font-size: 16px; */
+    font-family: 'Poppings';
+  }
+
+
+  #SkillLogo{
+    padding-right: 5px;
+    padding-bottom: 2px;
+   img{ max-height: 10px;}
+  }
+}
+
+.SkillDescr{
+  margin-right: 20px;
+
+  height: 19px;
+  width: 58px;
+  color: #7D7D7D;
+  background: #111;
+  font-size: 0.6em;
+  font-weight: 10px;
+  font-family: 'Poppins';
+}

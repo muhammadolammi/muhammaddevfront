@@ -12,11 +12,11 @@ const NavBar = (props: Props) => {
       <div className="Container">
       <h1>Logo</h1>
         <ul>
-          <li><a href="#"> Home</a></li>
+          <li><a href="/"> Home</a></li>
           <li><a href="#1"> About</a></li>
           <li><a href="#2"> Projects</a></li>
-          <li><a href="#3"> Tutorials</a></li>
-          <li><a href="#4"> Blogs</a></li>
+          <li><a href="/tutorials"> Tutorials</a></li>
+          <li><a href="/posts"> Blogs</a></li>
         </ul>
         </div>        
         
