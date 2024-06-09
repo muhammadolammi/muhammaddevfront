@@ -12,6 +12,7 @@ import NavBar from '../common/NavBar';
 import placeholder from '../images/placeholder.png'; // Import the placeholder image
 import { FieldContainer } from '../components/FieldContainer';
 import SectionTitle from '../common/SectionTitle';
+import { apiUrl } from '../env';
 
 
 // import{Tutorial} from './models';
@@ -64,6 +65,7 @@ const HomePage =() => {
    <NavBar />
   <div className="Body">
       {/* The Me Box */}
+     
       <div className="Container ">
       <div className="Me-Box">
         <div className="Intro">
@@ -166,6 +168,9 @@ const HomePage =() => {
         <ContentsComponent loading={loading} contents={posts} contentsType='Posts'/>
 
       </div>
+
+
+ 
   </div>  
   );
 }

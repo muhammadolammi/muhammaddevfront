@@ -121,7 +121,8 @@ const PublishPostEditor: React.FC<{ title: string, setLoading: (loading: boolean
   };
 
   const onPublish = async (title: string) => {
-    setLoading(true)
+    try {
+      setLoading(true)
     var postContent = ""
     if (editor) {
       postContent = editor.getHTML()
@@ -143,6 +144,11 @@ const PublishPostEditor: React.FC<{ title: string, setLoading: (loading: boolean
 
     setLoading(false)
     console.log(postContent)
+    } catch(e){
+      console.log(e)
+      return
+    }
+    
   }
 
   // Watch for changes in the editor content to detect removed images

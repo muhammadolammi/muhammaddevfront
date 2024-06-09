@@ -1,17 +1,9 @@
-FROM node:alpine
-WORKDIR /app
+FROM nginx:alpine
 
-# Copy package.json and package-lock.json first for better caching
-COPY package.json package-lock.json ./
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
 
-# Install node packages
-RUN npm install
+COPY ./build .
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy the rest of the files
-COPY . .
-
-# Give run.sh permission
-RUN chmod +x run.sh
-
-# Use sh to run the script
-CMD ["./run.sh"]
+CMD ["nginx", "-g", "daemon off;"]

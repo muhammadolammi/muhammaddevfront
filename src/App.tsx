@@ -5,6 +5,7 @@ import { Outlet } from 'react-router';
 // import{Tutorial} from './models';
 
 function App() {
+   
    return <>
    <Outlet />
    </>

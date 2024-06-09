@@ -13,6 +13,7 @@ import { Playlist, Post, Tutorial } from '../db/models';
 import {PlaylistBar} from '../common/PlaylistBar';
 import SizedBox from '../common/SizedBox';
 import { fetchPlaylists } from '../db/playlist';
+import { apiUrl } from '../env';
 
 type Props = {}
 
@@ -46,7 +47,17 @@ const PostsPage = (props: Props) => {
          
        <> 
        <NavBar/>
+
        <div className='Contents-Page'>
+        <button
+        onClick={
+          ()=>{
+            console.log(apiUrl)
+          }
+        }
+        >
+          TEST
+        </button>
            <div className="contentsTitle">
             <h1>Posts</h1>
         </div>
