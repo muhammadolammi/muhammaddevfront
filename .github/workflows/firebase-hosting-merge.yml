@@ -13,8 +13,20 @@ jobs:
       REACT_APP_API_URL: ${{secrets.REACT_APP_API_URL}}
       REACT_APP_API_KEY: ${{secrets.REACT_APP_API_KEY}}
     steps:
+     
       - uses: actions/checkout@v4
-      - run: CI=false npm install && CI=false npm run build
+
+      - name: Cache npm dependencies
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      
+      - name: Install npm depencies and Build the app
+        run: CI=false npm ci && CI=false npm run build
+      - name: Run tests
+        run: npm test
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
