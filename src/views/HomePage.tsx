@@ -12,7 +12,7 @@ import NavBar from '../common/NavBar';
 import placeholder from '../images/placeholder.png'; // Import the placeholder image
 import { FieldContainer } from '../components/FieldContainer';
 import SectionTitle from '../common/SectionTitle';
-
+// DEV MODE 
 
 // import{Tutorial} from './models';
 
