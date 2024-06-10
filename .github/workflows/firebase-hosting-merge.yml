@@ -25,7 +25,7 @@ jobs:
       - name: Install npm depencies and Build the app
         run: CI=false npm ci && CI=false npm run build
       - name: Run tests
-        run: npm test --passWithNoTests
+        run: npm test 
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
