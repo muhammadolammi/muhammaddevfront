@@ -3,7 +3,7 @@ import '../css/editorpage.css';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Post } from '../db/models';
-import { getPostWithId, getPostWithTitle } from '../db/posts';
+import {  getPostWithTitle } from '../db/posts';
 import { EditPostEditor } from '../components/EditPostEditor';
 import { dataToPost } from '../helperfunc/dataToPost';
 import { ReFormatTitle } from '../helperfunc/formatTitle';

@@ -15,7 +15,9 @@ const PlaylistsPage = (props: Props) => {
 
     useEffect(()=>{
      fetchPlaylists().then((playlists)=>{
+      setLoading(true)
         setPlaylists(playlists)
+        setLoading(false)
      }).catch((e)=>{
         console.log("error getting playlist e:", e)
      })

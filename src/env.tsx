@@ -1,4 +1,5 @@
 const apiUrl = process.env.REACT_APP_API_URL;
+const apiKey = process.env.REACT_APP_API_KEY;
 const mainUrl = process.env.REACT_APP_MAIN_URL;
 const  firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,7 +12,7 @@ const  firebaseConfig = {
 };
 export {
   apiUrl,
- 
+ apiKey,
   
   mainUrl,
   firebaseConfig

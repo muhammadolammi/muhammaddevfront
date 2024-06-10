@@ -1,6 +1,6 @@
 
 // import { resolveCaa } from 'dns'
-import{apiUrl} from '../env'
+import{apiKey, apiUrl} from '../env'
 import { Tutorial } from './models'
 import { fetchData } from './getData'
 const fetchTutorials =  async ():Promise<Tutorial[]> => {
@@ -47,7 +47,10 @@ const publishTutorial = async (tutorial:Tutorial) =>{
   try {
     const response = await fetch(`${apiUrl}/tutorials`, {
       method: 'POST', // Specify the request method
-
+      headers: {
+        "Authorization": apiKey?? "",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
       
       body: JSON.stringify(tutorial), // Convert the tutorial object to JSON
     });
@@ -74,7 +77,10 @@ const deleteTutorial = async (tutorialID:string) =>{
   try {
     const response = await fetch(`${apiUrl}/tutorial/${tutorialID}`, {
       method: 'DELETE', // Specify the request method
-
+      headers: {
+        "Authorization": apiKey?? "",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
           });
 
     // Check if the response status is OK
@@ -99,7 +105,10 @@ const editTutorial = async (tutorial:Tutorial) =>{
   try {
     const response = await fetch(`${apiUrl}/tutorial/${tutorial.id}`, {
       method: 'PUT', // Specify the request method
-
+      headers: {
+        "Authorization": apiKey?? "",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
       
       body: JSON.stringify(tutorial), // Convert the tutorial object to JSON
     });

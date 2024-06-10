@@ -1,7 +1,6 @@
 
 import React from 'react'
 import { Skill } from '../models'
-import SizedBox from '../common/SizedBox'
 
 type Props = {
     skills : Skill[]

@@ -1,7 +1,7 @@
 
 // import { resolveCaa } from 'dns'
 // import { useNavigate } from 'react-router-dom';
-import{apiUrl} from '../env'
+import{apiKey, apiUrl} from '../env'
 import { Post } from './models'
 import { fetchData } from './getData'
 const fetchPosts=  async ():Promise<Post[]> => {
@@ -25,7 +25,10 @@ const publishPost = async (post:Post) =>{
     const response = await fetch(`${apiUrl}/posts`, {
       method: 'POST', // Specify the request method
 
-      
+      headers: {
+        "Authorization": apiKey?? "",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
       body: JSON.stringify(post), // Convert the post object to JSON
     });
 
@@ -52,7 +55,10 @@ const deletePost = async (postID:string) =>{
     const response = await fetch(`${apiUrl}/post/${postID}`, {
       method: 'DELETE', // Specify the request method
 
-      
+      headers: {
+        "Authorization": apiKey?? "",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
       // body: JSON.stringify(post), // Convert the post object to JSON
     });
 
@@ -79,7 +85,10 @@ const editPost = async (post:Post) =>{
   try {
     const response = await fetch(`${apiUrl}/post/${post.id}`, {
       method: 'PUT', // Specify the request method
-
+      headers: {
+        "Authorization": apiKey?? "",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
       
       body: JSON.stringify(post), // Convert the post object to JSON
     });

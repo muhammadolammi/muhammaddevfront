@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { mainUrl } from "../env";
 import { deletePost } from "../db/posts";
 import { deleteTutorial } from "../db/tutorial";
 

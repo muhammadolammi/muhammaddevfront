@@ -19,10 +19,10 @@ const ContentCard: React.FC<{ contentsType:string, contentId:string, contentTitl
    thumbnail = contentThumbnail
   }
   var contentType = ""
-  if (contentsType=="tutorials"){
+  if (contentsType==="tutorials"){
     contentType = "Tutorial"
   }
-  if (contentsType=="posts"){
+  if (contentsType==="posts"){
     contentType = "Post"
   }
 const navigate = useNavigate()
@@ -41,7 +41,7 @@ const navigate = useNavigate()
      <div className='contentThumbnail' >
      
     
-     <img src={thumbnail} alt="Placeholder Image" />
+     <img src={thumbnail} alt="PlaceholderImage" />
     
     
      </div>

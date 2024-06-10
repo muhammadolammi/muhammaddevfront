@@ -1,7 +1,7 @@
 
 
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router'
+import { useLocation } from 'react-router'
 import { ContentsComponent } from '../components/ContentsComponent';
 import {  fetchTutorialsFromPlaylist } from '../db/tutorial';
 import '../css/contentsPage.css'
@@ -48,7 +48,9 @@ const TutorialsPage =  (props: Props) => {
         
         })
     }
+    setLoading(true)
     fectContents()
+    setLoading(false)
   },[playlist, ])
 
   useEffect(()=>{

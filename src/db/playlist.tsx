@@ -1,4 +1,4 @@
-import { apiUrl } from "../env"
+import { apiKey, apiUrl } from "../env"
 import { Playlist } from "./models"
 import { fetchData } from "./getData"
 
@@ -22,7 +22,10 @@ const addPlaylist = async (playlist:Playlist) =>{
     const response = await fetch(`${apiUrl}/playlists`, {
       method: 'POST', // Specify the request method
 
-      
+      headers: {
+        "Authorization": apiKey?? "",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
       body: JSON.stringify(playlist), // Convert the post object to JSON
     });
 
@@ -50,7 +53,10 @@ const editPlaylist = async (playlist:Playlist) =>{
     const response = await fetch(`${apiUrl}/playlist/${playlist.id}`, {
       method: 'PUT', // Specify the request method
 
-      
+      headers: {
+        "Authorization": apiKey?? "",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
       body: JSON.stringify(playlist), // Convert the post object to JSON
     });
 

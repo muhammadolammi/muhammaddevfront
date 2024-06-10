@@ -12,7 +12,7 @@ import NavBar from '../common/NavBar';
 import placeholder from '../images/placeholder.png'; // Import the placeholder image
 import { FieldContainer } from '../components/FieldContainer';
 import SectionTitle from '../common/SectionTitle';
-import { apiUrl } from '../env';
+import { apiKey, apiUrl } from '../env';
 
 
 // import{Tutorial} from './models';
@@ -65,7 +65,11 @@ const HomePage =() => {
    <NavBar />
   <div className="Body">
       {/* The Me Box */}
-     
+     <button onClick={()=>{
+      console.log(apiUrl)
+       console.log(apiKey)}}>
+      test
+     </button>
       <div className="Container ">
       <div className="Me-Box">
         <div className="Intro">

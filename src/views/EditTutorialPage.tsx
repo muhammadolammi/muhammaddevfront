@@ -2,9 +2,9 @@ import '../css/editorpage.css';
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Post, Tutorial } from '../db/models';
+import { Tutorial } from '../db/models';
 
-import { getTutorialWithId, getTutorialWithTitle } from '../db/tutorial';
+import {  getTutorialWithTitle } from '../db/tutorial';
 import { dataToTutorial } from '../helperfunc/datatToTutorial';
 import { EditTutorialEditor } from '../components/EditTutorialEditor';
 import { ReFormatTitle } from '../helperfunc/formatTitle';

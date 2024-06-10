@@ -2,7 +2,7 @@
     "name": "muhammaddevfront",
     "version": "0.1.0",
     "private": true,
-    "proxy": "http://localhost:8080/",
+     "proxy": "https://backend.muhammaddev.com/",
     "dependencies": {
         "@mui/icons-material": "^5.15.18",
         "@testing-library/jest-dom": "^5.17.0",
