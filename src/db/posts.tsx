@@ -22,7 +22,6 @@ const fetchPosts=  async ():Promise<Post[]> => {
 const publishPost = async (post:Post) =>{
   
   try {
-    console.log(apiUrl)
     const response = await fetch(`${apiUrl}/posts`, {
       
       method: 'POST', // Specify the request method
