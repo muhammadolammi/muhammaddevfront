@@ -67,7 +67,7 @@ const HomePage =() => {
       {/* The Me Box */}
      <button onClick={()=>{
       console.log(apiUrl)
-       console.log(apiKey)}}>
+    }}>
       test
      </button>
       <div className="Container ">
