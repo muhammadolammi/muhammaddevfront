@@ -1,0 +1,27 @@
+
+
+name: Run for tests on pr 
+on:
+   push 
+
+
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+jobs:
+  npm-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache npm dependencies
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      
+      - name: Install npm depencies and Build the app
+        run: CI=false npm ci && CI=false npm run build
+      - name: Run tests
+        run: npm test 
+    
