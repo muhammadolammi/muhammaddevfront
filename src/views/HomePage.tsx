@@ -13,7 +13,6 @@ import placeholder from '../images/placeholder.png'; // Import the placeholder i
 import { FieldContainer } from '../components/FieldContainer';
 import SectionTitle from '../common/SectionTitle';
 
-
 // import{Tutorial} from './models';
 
 const HomePage =() => {
