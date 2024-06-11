@@ -20,6 +20,7 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+      - run: cat $REACT_APP_API_URL
       - run: CI=false npm ci && CI=false npm run build
       - name: Run tests
         run: npm test 
