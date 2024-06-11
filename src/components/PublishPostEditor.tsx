@@ -9,7 +9,7 @@ import { Editor, EditorContent, useEditor } from '@tiptap/react'
 import React, { useRef, useState, useEffect } from 'react'
 import { checkImageExists, deleteImage, uploadImage } from '../db/images'
 import { publishPost } from '../db/posts'
-import { mainUrl } from '../env'
+import { apiUrl, mainUrl } from '../env'
 import { FormatTitle } from '../helperfunc/formatTitle'
 
 const PublishPostEditor: React.FC<{ title: string, setLoading: (loading: boolean) => void }> = ({ title, setLoading }) => {
@@ -183,6 +183,11 @@ const PublishPostEditor: React.FC<{ title: string, setLoading: (loading: boolean
       <MenuBar />
       <EditorContent editor={editor} />
       <button onClick={() => onPublish(title)}>Publish</button>
+      {/* <button
+      onClick={()=>{
+        console.log(apiUrl)
+      }}
+      >Test</button> */}
     </div>
   );
 };
