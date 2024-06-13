@@ -9,6 +9,8 @@ import { F404Page } from "../common/F404Page";
 import { PlaylistsPage } from "../views/PlaylistsPage";
 import TutorialsPage from "../views/TutorialsPage";
 import PostsPage from "../views/PostsPage";
+import {  SignInnPage } from "../views/SignInPage";
+import { SignUpPage } from "../views/SignUpPage";
 
 
 const router = createBrowserRouter([
@@ -17,11 +19,11 @@ const router = createBrowserRouter([
         element:<App/>,
         children: [
             {   path: "",   element: <HomePage/> },
-            {   path: "publishpost",   element: <PublishPostPage/> },
-            {   path: "publishtutorial",   element: <PublishTutorialPage/> },
+            {   path: "/publishpost",   element: <PublishPostPage/> },
+            {   path: "/publishtutorial",   element: <PublishTutorialPage/> },
 
-            { path: "editpost/:postTitle", element: <EditPostPage /> }, // Add the dynamic route
-            { path: "edittutorial/:tutorialTitle", element: <EditTutorialPage /> } ,
+            { path: "/editpost/:postTitle", element: <EditPostPage /> }, // Add the dynamic route
+            { path: "/edittutorial/:tutorialTitle", element: <EditTutorialPage /> } ,
             {path:"/tutorials", element:<TutorialsPage/>},
 
             // {path:"/tutorials/:title", element:<TutorialPage />},
@@ -29,8 +31,12 @@ const router = createBrowserRouter([
             {path:"/posts", element:<PostsPage/>},
             // {path:"/posts/:title", element:<PostPage />},
 
-            {path:"playlists", element:<PlaylistsPage />}
+            {path:"/playlists", element:<PlaylistsPage />},
+             
 
+            // AUTHS path
+            {path:"/signIn", element:<SignInnPage />},
+            {path:"/signup", element:<SignUpPage />}
 
         ],
         errorElement: <F404Page />
