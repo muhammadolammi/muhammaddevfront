@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../common/NavBar';
 import {  signIn } from '../auth/auth';
+import { useNavigate } from 'react-router';
 
 
 
@@ -9,11 +10,16 @@ type Props = {}
 export  const SignInnPage: React.FC<{  }> = ({  }) => {
   const [email, setEmail] = useState("")
     const [password, setPassword ] = useState("")
-   
+   const navigate = useNavigate()
 
    const onSignIn = async() => {
-      
-    await signIn(email, password,)
+   try{
+    await signIn(email, password, navigate)
+    
+   }  catch(e){
+    alert(e)
+   }   
+    
    }
 
   return (
@@ -21,16 +27,22 @@ export  const SignInnPage: React.FC<{  }> = ({  }) => {
         <NavBar />
 
         <div>
-            <input placeholder="Email" id="#email" onChange={(e)=>{
+            <input 
+             type="text" 
+             value={email}
+            placeholder="Email" id="#email" onChange={(e)=>{
               setEmail(e.target.value)
               }}></input>
 
             
         </div>
         <div>
-            <textarea placeholder="Password" id="#password" onChange={(e)=>{
+            <input
+             type="text" 
+             value={password}
+            placeholder="Password" id="#password" onChange={(e)=>{
               setPassword(e.target.value)
-              }}></textarea>
+              }}></input>
         </div>
 
      

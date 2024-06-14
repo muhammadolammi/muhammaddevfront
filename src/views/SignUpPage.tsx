@@ -9,12 +9,12 @@ type Props = {}
 export  const SignUpPage: React.FC<{  }> = ({  }) => {
   const [email, setEmail] = useState("")
     const [password, setPassword ] = useState("")
-    const [first_name, setFirstName] = useState("")
-    const [last_name, setLastName ] = useState("")
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName ] = useState("")
 
    const onSignUp = async() => {
       
-    await signUp({email, password, first_name, last_name})
+    await signUp(email, password, firstName, lastName)
    }
 
   return (
@@ -22,7 +22,10 @@ export  const SignUpPage: React.FC<{  }> = ({  }) => {
         <NavBar />
 
         <div>
-            <input  placeholder="Email" id="#email" onChange={(e)=>{
+            <input 
+                        value={email}
+
+            placeholder="Email" id="#email" onChange={(e)=>{
               setEmail(e.target.value)
               }}></input>
 
@@ -30,20 +33,29 @@ export  const SignUpPage: React.FC<{  }> = ({  }) => {
         </div>
 
         <div>
-        <input placeholder="FirstName" id="#firstname" onChange={(e)=>{
+        <input
+                    value={firstName}
+
+        placeholder="FirstName" id="#firstname" onChange={(e)=>{
               setFirstName(e.target.value)
               }}></input>
               
         </div>
         <div>
-        <input placeholder="LastName" id="#lastname" onChange={(e)=>{
+        <input
+                    value={lastName}
+
+        placeholder="LastName" id="#lastname" onChange={(e)=>{
               setLastName(e.target.value)
               }}></input>
         </div>
         <div>
-            <textarea placeholder="Password" id="#password" onChange={(e)=>{
+            <input 
+            type='text'
+            value={password}
+            placeholder="Password" id="#password" onChange={(e)=>{
               setPassword(e.target.value)
-              }}></textarea>
+              }}></input>
         </div>
       
       <button

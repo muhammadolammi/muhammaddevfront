@@ -11,6 +11,7 @@ import TutorialsPage from "../views/TutorialsPage";
 import PostsPage from "../views/PostsPage";
 import {  SignInnPage } from "../views/SignInPage";
 import { SignUpPage } from "../views/SignUpPage";
+import { DashboardPage } from "../views/DashboardPage";
 
 
 const router = createBrowserRouter([
@@ -36,7 +37,10 @@ const router = createBrowserRouter([
 
             // AUTHS path
             {path:"/signIn", element:<SignInnPage />},
-            {path:"/signup", element:<SignUpPage />}
+            {path:"/signup", element:<SignUpPage />},
+
+            {path:"/dashboard/*", element:<DashboardPage />}
+
 
         ],
         errorElement: <F404Page />
