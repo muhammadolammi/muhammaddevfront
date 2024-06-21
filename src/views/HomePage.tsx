@@ -1,179 +1,68 @@
-import React from 'react';
-import "../css/homepage.css"
+import code from '../images/code1.png'; // Import the placeholder image
 
 
-import { fetchTutorials } from '../db/tutorial';
-import { useState , useEffect} from 'react';
-import { Post, Tutorial } from '../db/models';
-import { fetchPosts } from '../db/posts';
-import { ContentsComponent } from '../components/ContentsComponent';
-import SizedBox from '../common/SizedBox';
-import NavBar from '../common/NavBar';
-import placeholder from '../images/placeholder.png'; // Import the placeholder image
-import { FieldContainer } from '../components/FieldContainer';
-import SectionTitle from '../common/SectionTitle';
+import React from 'react'
+import NavBar from '../common/NavBar'
+import Footer from '../common/Footer';
 
-// import{Tutorial} from './models';
 
-const HomePage =() => {
-   const [tutorials, setTutorials] = useState<Tutorial[]>([])
-   const [posts, setPosts] = useState<Post[]>([])
-
-   const [loading, setLoading] = useState<boolean>(true);
-
-  
-
-   useEffect(()=>{
-    //get tutorials func
-    const getTutorials = async () => {
-      try {
-        const tutorialList = await fetchTutorials();
-        // console.log(tutorialList); // Check what tutorialList contains
-        setTutorials(tutorialList);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching tutorials:', error);
-        setLoading(false); // Set loading to false to avoid indefinite loading state
-      }
-
-    };
-
-    //get posts func
-    const getPosts = async () => {
-      try {
-        const postList = await fetchPosts();
-        // console.log(postList); // Check what tutorialList contains
-        setPosts(postList);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching tutorials:', error);
-        setLoading(false); // Set loading to false to avoid indefinite loading state
-      }
-
-    };
-
-    getTutorials();
-    getPosts();
-   },[])
-
-  
-  
-   return (
-    <div className="Homepage">
-   <NavBar />
-  <div className="Body">
-      {/* The Me Box */}
-    
-      <div className="Container ">
-      <div className="Me-Box">
-        <div className="Intro">
-        Hi, I'm
-       
-        </div>
-       
-       <div className="Name">
-       Muhammad Akewukanwo
-        </div> 
-        <div className="Proffesion">
-       Software Engineer
-        </div>
-      <div className="About">
-      Passionate about building scalable web applications and optimizing system operations. With extensive experience in both front-end and back-end development, and a deep understanding of DevOps practices, I strive to deliver seamless user experiences and robust infrastructure solutions.
-
-        </div> 
-        <button>Contact Me</button>
-        {/* <div className="Buttons">
-         
-          <button>Check My Resume</button>
-          <button>Contact Me</button>
-       
-        
-          </div>  */}
-
-      
-      </div>
+function HomePage() {
+  return (
+    <div className='bg-black'>
+      <NavBar/>
+      <div className=' container  mt-[50px] text-[#F0F2F5]  font-bold  w-[1032px] h-[236px] place-content-center text-center ' >
+       <text className='text-7xl font-semibold   '> Empower Your Coding 
+      <br />
+      Journey
+      </text> 
       </div>
 
-      {/* The About Box */}
-      <div className="AboutMe-Container">
-          <div className="AboutMe-Box">
-            <SectionTitle title='About Me'/>
-                  <div className="AboutMe-Details">
-                   <div className="AboutMe-Content">
-                   <div className="AboutMe-ContentText">
-                  <span>
-                     <b>I am</b> a dedicated and skilled SoftWare Engineer with a passion for coding and a knack for problem-solving. My journey in the tech world has equipped me with a comprehensive skill set that spans across various programming languages and development tools. I enjoy turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies or sharing my knowledge through tutorials and blogs.
-                   </span>
-                    </div>
-
-                   
-                  
-                  <button className='AboutMe-ContentButton'>Read My Resume</button>
-                 
-                   </div>
-                    <div className="AboutMe-DetailsImage">
-                    <img  src={placeholder} alt="" />
-                    </div>
-                    
-                    
-                  </div>
-            </div>
+      <div className='container w-[819px] h-[132px] text-center text-[#B0B0B0] text-x  font-poppins text'>
+        <p >
+        This platform is designed to empower you, a junior programmer, on your 
+        <br />
+        journey to mastering the art of coding. Whether you're a complete 
+        <br />
+        beginner or have some basic experience, we offer a comprehensive
+        <br />
+         and engaging learning experience to propel you forward.
+        </p>
       </div>
-     {/* Fields and Skills */}
-     <div className="Skills-Container">
-       <SectionTitle title='Skills'/>
-        <div className="Fields-list">
-          <FieldContainer fieldName='Back-end Development' skills={[
-          {skill:"Golang", description:"Advance", logo:placeholder},
-          {skill:"Docker", description:"Advance", logo:placeholder},
-          {skill:"Golang", description:"Advance", logo:placeholder},
-          {skill:"Docker", description:"Advance", logo:placeholder},
-          {skill:"Golang", description:"Advance", logo:placeholder},
-          {skill:"Docker", description:"Advance", logo:placeholder},
-          ]} height={419}/>
-     <FieldContainer fieldName='Front-end Development' skills={[
-            {skill:"React TypeScript", description:"Advance", logo:placeholder},
-          {skill:"Flutter", description:"Advance", logo:placeholder},
-          ]} height={294}/>
-          
-          <FieldContainer fieldName='Dev Ops' skills={[
-          {skill:"Github Actions", description:"Advance", logo:placeholder},
-          
-          ]} height={196}/>
-    
-        </div>
-         
-           {/* <FieldContainer fieldName='Dev Ops' skills={[
-          {skill:"Github Actions", description:"Ci/CD Tool"},
-          
-          ]} /> */}
-     </div>
 
-{/* Projects */}
-<div className="Projects-Container">
-<SectionTitle title='Projects'/>
+      <div className=" mt-[30px] flex justify-center">
+  <button className="bg-[#FDF7F2]  text-[#161513]  font-regular text-[17px] font-poppins py-2 px-4 rounded-lg">
+   Contact Me
+  </button>
+</div>
+{/* <div className='container mt-[100px] w-[1172px] h-[655.61px] relative'>
+  <div className='absolute w-full h-full backdrop-filter blur-md'></div>
+  <img className='container  mt-[100px] max-w-[973.18px] max-h-[655.61px] backdrop-blur-xl rounded-lg	' src={code} alt="" />
+</div> */}
+
+<figure className=" container  mt-[100px]  max-w-xl h-[300px] flex justify-center items-center filter grayscale hover:filter-none">
+<div className='relative'>
+  
+<img className="  rounded-lg w-[973.18px] h-[400px] mt-[100px]  "  src={code} alt=''/>
+    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-[#000]"></div>
 
 </div>
-      <div className="contentsTitle">
-            <h1>Tutorials</h1>
-        </div>
-       <ContentsComponent loading={loading} contents={tutorials} contentsType='Tutorials'/>
-     <SizedBox  height={100}/>
-       <div className="contentsTitle">
-            <h1>Posts</h1>
-        </div>
+  
+</figure>
+
+   <div className='container  mt-[200px] w-[522px] h-[66px]'>
+    <p className='text-[#F0F2F5] text-center  text-4xl font-semibold'>Clear Learning Paths</p>
+   </div>
+   <div className='container  mt-[20px] w-[700px] h-[66px]'>
+    <p className='text-[#B0B0B0] text-center  font-poppins '>We offer well-structured learning paths for various popular programming languages, building your skills progressively from the fundamentals to more advanced concepts.</p>
+   </div>
    
-        <ContentsComponent loading={loading} contents={posts} contentsType='Posts'/>
 
-      </div>
-
-
- 
-  </div>  
-  );
+   <div  className='container bg-red-800 w-[186px] h-[72px]'>
+    <p>Golang</p>
+   </div>
+<Footer />
+    </div>
+  )
 }
 
-export { HomePage};
-
-
-
+export  {HomePage}

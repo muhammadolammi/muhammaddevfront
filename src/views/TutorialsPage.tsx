@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 import { ContentsComponent } from '../components/ContentsComponent';
 import {  fetchTutorialsFromPlaylist } from '../db/tutorial';
-import '../css/contentsPage.css'
 
 import NavBar from '../common/NavBar';
 import { Playlist,  Tutorial } from '../db/models';

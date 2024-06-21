@@ -1,4 +1,3 @@
-import '../css/cards.css'
 
 import React from 'react';
 import placeholder from '../images/placeholder.png'; // Import the placeholder image

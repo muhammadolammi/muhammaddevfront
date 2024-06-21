@@ -46,9 +46,9 @@ export  const SignInnPage: React.FC<{  }> = ({  }) => {
         </div>
 
      
-        <button
+        <button className='bg-red'
       onClick={onSignIn}
-      >
+          >
         SigIn
       </button>
 

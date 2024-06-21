@@ -1,13 +1,15 @@
 
 
+
+
 import React from 'react'
 
 
 type Props = {}
 
-const NavBar = (props: Props) => {
+const Footer = (props: Props) => {
   return (
-    <div className='flex flex-row  items-center justify-between  ml-20 mr-20  bg-transparent h-[111px] text-white   flex-wrap font-poppins'   >
+    <div className='flex flex-row  items-center justify-between mt-[100px]  ml-20 mr-20  bg-transparent h-[111px] text-white   flex-wrap font-poppins'   >
 
       <h1 className='bg-black'>Logo</h1>
      
@@ -23,4 +25,4 @@ const NavBar = (props: Props) => {
   )
 }
 
-export default NavBar
+export default Footer

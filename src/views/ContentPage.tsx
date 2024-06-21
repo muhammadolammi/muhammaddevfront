@@ -7,7 +7,6 @@ import {  getPostWithTitle } from '../db/posts'
 import { EmptyPost, EmptyTutorial, Post, Tutorial } from '../db/models'
 import {  getTutorialWithTitle } from '../db/tutorial'
 import DOMPurify from 'dompurify'
-import '../css/contentPage.css'
 import { ReFormatTitle } from '../helperfunc/formatTitle'
 import NavBar from '../common/NavBar'
 

@@ -1,4 +1,3 @@
-import '../css/tiptap.css'
 import Document from '@tiptap/extension-document'
 import Dropcursor from '@tiptap/extension-dropcursor'
 import Image from '@tiptap/extension-image'
@@ -9,8 +8,10 @@ import { Editor, EditorContent, useEditor } from '@tiptap/react'
 import React, { useRef, useState, useEffect } from 'react'
 import { checkImageExists, deleteImage, uploadImage } from '../db/images'
 import { publishPost } from '../db/posts'
-import { apiUrl, mainUrl } from '../env'
+import {  mainUrl } from '../env'
 import { FormatTitle } from '../helperfunc/formatTitle'
+import '../index.css'
+
 
 const PublishPostEditor: React.FC<{ title: string, setLoading: (loading: boolean) => void }> = ({ title, setLoading }) => {
   const [thumbnail, setThumbnail] = useState("")

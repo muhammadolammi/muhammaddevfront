@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 // import { useParams } from 'react-router'
 import { ContentsComponent } from '../components/ContentsComponent';
 import { fetchPosts } from '../db/posts';
-import '../css/contentsPage.css'
 
 import NavBar from '../common/NavBar';
 import {  Post } from '../db/models';

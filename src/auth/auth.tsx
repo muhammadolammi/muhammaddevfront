@@ -1,5 +1,6 @@
+import { json } from 'stream/consumers';
 import{apiKey, apiUrl} from '../env'
-import { EmptySessionToken, SessionToken, User } from './models';
+import {EmptyUser, User } from './models';
 
 
 
@@ -17,7 +18,6 @@ export const signUp = async (email:string, password:string, firstName:string, la
     }
 
     try {
-      console.log(apiKey)
         const response = await fetch(`${apiUrl}/signup`, {
           
           method: 'POST', // Specify the request method
@@ -49,7 +49,7 @@ export const signIn = async ( email: string, password: string, navigate:any) =>{
    }
 
    try {
-       const response = await fetch(`${apiUrl}/signin`, {
+       await fetch(`${apiUrl}/signin`, {
          
          method: 'POST', // Specify the request method
    
@@ -74,119 +74,106 @@ export const signIn = async ( email: string, password: string, navigate:any) =>{
 
 
 
-export const isUserLoggedIn = async (): Promise<boolean> => {
-  try {
-    const response = await fetch(`${apiUrl}/validate`, {
-      method: 'POST',
-      headers: {
-        "Authorization": apiKey ?? "",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      // You can optionally include a body if needed
-      // body: JSON.stringify({ /* body data */ }),
-      credentials : 'include'
-    });
 
-    // Check if the response status is within the 200-299 range
-    if (response.ok) {
-      return true; // User is logged in
+
+
+
+
+
+export const getUser = async (): Promise<User> =>{
+     try{
+   const res =   await fetch(`${apiUrl}/users/me`,
+    {
+      credentials: 'include'
     }
-
-    // Handle other response status codes as needed
-    // For example, unauthorized (401) or server errors (5xx)
-    // You can log the response body for debugging
-    console.log(await response.text());
-    return false;
-  } catch (e) {
-    // Handle fetch errors (e.g., network error)
-    console.log(e);
-    return false;
-  }
-};
-
-
-
-export const getUserSessionToken = async (): Promise<SessionToken> => {
-  try {
-    const response = await fetch(`${apiUrl}/session`, {
-      method: 'GET',
-      headers: {
-        "Authorization": apiKey ?? "",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      // You can optionally include a body if needed
-      // body: JSON.stringify({ /* body data */ }),
-      credentials : 'include'
-    });
-
-  
-    // // Handle other response status codes as needed
-    // // For example, unauthorized (401) or server errors (5xx)
-    // // You can log the response body for debugging
-    // console.log(await response.text());
-    // return EmptySessionToken
-    const payload = await response.json()
-    
-    return payload as SessionToken; 
-    
-  } catch (e) {
-    // Handle fetch errors (e.g., network error)
-    console.log(e);
-    return EmptySessionToken
+   )
+   const  body = await res.json()
+    if (res.ok){
+      
+    const  user = body.data
    
-  }
-};
-
-export const refreshToken = async ( userId: string, refreshToken: string) =>{
-
-
-  const  body =  {
-   user_id: userId,
-   refresh_token: refreshToken,
- 
-   }
-
-   try {
-        await fetch(`${apiUrl}/refresh`, {
-         
-         method: 'POST', // Specify the request method
-   
-         headers: {
-           "Authorization": apiKey?? "",
-           // 'Content-Type': 'application/x-www-form-urlencoded',
-         },
-         body: JSON.stringify(body), // Convert the body object to JSON
-       });
-     } 
-       catch(e){
-         console.log(e)
-       }
-
-       
-
+      return user
+      
+      
+    }
+          return EmptyUser
+     
+     
+     }catch (e){
+    
+      return EmptyUser
+     }
 }
 
 
-export const getUserWithId = async (id: string):Promise<User> => {
-  try {
-    const response = await fetch(`${apiUrl}/users/${id}`, {
-      method: 'GET'
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+export const refreshTokens = async (refreshToken:string) =>{
+  const  body =  {
+    refresh_token: refreshToken
     }
+  
 
-    const data = await response.json();
-    // console.log("Fetched data:", data); // Log the entire fetched data
-    // // Ensure the data contains the expected properties
-    // if (!data.id || !data.content || !data.post_url || !data.thumbnail || !data.title) {
-    //   throw new Error("Fetched data is missing some properties");
-    // }
-    return data.data as User;
+  try{
+  const res =  await fetch(`${apiUrl}/refresh`,
+ {
+  headers: {
+    "Authorization": apiKey?? "",
+    // 'Content-Type': 'application/x-www-form-urlencoded',
+  },
+  method: "POST",
+   credentials: 'include',
+   body: JSON.stringify(body),
+ },
 
-  } catch (error) {
-    console.error('Error fetching post:', error);
-    throw error; // Ensure the error is propagated to the caller
+)
+
+
+   if (res.ok){
+    console.log("token refreshed")
+   return
   }
-};
+
+  const resBody = await res.json()
+  console.log(resBody, res.status)
+
+
+   
+  }catch (e){
+    console.log("token cant be refreshed, err:", e)
+  }
+}
+
+
+
+
+
+export const validateUser = async (useraccesstoken:string): Promise<boolean> =>{
+  try{
+const res =   await fetch(`${apiUrl}/validate`,
+ {
+ method:"POST",
+  headers: {
+    "Authorization": useraccesstoken,
+    // 'Content-Type': 'application/x-www-form-urlencoded',
+  },
+   credentials: 'include'
+ }
+)
+const  body = await res.json()
+ if (res.ok){
+  console.log("validated")
+
+
+   return true
+   
+   
+ }
+
+   console.log(body)
+   return false
+  
+  
+  }catch (e){
+   console.log("cant validate, err: ", e)
+   return false
+  }
+}

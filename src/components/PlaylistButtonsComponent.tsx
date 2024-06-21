@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Playlist } from "../db/models";
 import { addPlaylist, fetchPlaylists } from "../db/playlist";
-import '../css/cards.css'
 
 
 export const PlaylistButtonsComponent: React.FC<{ 
