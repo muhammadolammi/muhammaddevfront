@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 // import { useParams } from 'react-router'
-import { ContentsComponent } from '../components/ContentsComponent';
+import { PostsComponent } from '../components/ContentsComponent';
 import { fetchPosts } from '../db/posts';
 
 import NavBar from '../common/NavBar';
@@ -12,7 +12,7 @@ import {  Post } from '../db/models';
 type Props = {}
 
 const PostsPage = (props: Props) => {
-  
+   
 
     const [posts, setPosts] = useState<Post[]>([]);
 
@@ -49,7 +49,7 @@ const PostsPage = (props: Props) => {
         </div>
 
 
-       <ContentsComponent contentsType="Posts" contents={posts}  loading={loading} />
+       <PostsComponent  posts={posts}  loading={loading} />
       
       </div>  
       </> 

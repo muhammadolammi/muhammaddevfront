@@ -6,6 +6,7 @@ import { Post } from './models'
 import { fetchData } from './getData'
 const fetchPosts=  async ():Promise<Post[]> => {
     try{ 
+      console.log(apiUrl)
         const posts = await fetchData<[Post]>(`${apiUrl}/posts` )
         
         
@@ -19,7 +20,7 @@ const fetchPosts=  async ():Promise<Post[]> => {
 }
 
 
-const publishPost = async (post:Post) =>{
+const publishPost = async (post:Post, accesToken : string) =>{
   
   try {
     const response = await fetch(`${apiUrl}/posts`, {
@@ -27,7 +28,7 @@ const publishPost = async (post:Post) =>{
       method: 'POST', // Specify the request method
 
       headers: {
-        "Authorization": apiKey?? "",
+        "Authorization": accesToken,
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify(post), // Convert the post object to JSON

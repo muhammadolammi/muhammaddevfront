@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
-import { ContentsComponent } from '../components/ContentsComponent';
+import { TutorialsComponent } from '../components/ContentsComponent';
 import {  fetchTutorialsFromPlaylist } from '../db/tutorial';
 
 import NavBar from '../common/NavBar';
@@ -73,7 +73,7 @@ const TutorialsPage =  (props: Props) => {
         </div>
         <PlaylistBar playlists={playlists} />
         <SizedBox height={10}/>
-     <ContentsComponent contentsType="Tutorials" contents={tutorials}  loading={loading} />
+     <TutorialsComponent  tutorials={tutorials}  loading={loading} />
         </div>
         </>
       )

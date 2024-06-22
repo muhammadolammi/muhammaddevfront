@@ -13,7 +13,7 @@ import { FormatTitle } from '../helperfunc/formatTitle'
 import '../index.css'
 
 
-const PublishPostEditor: React.FC<{ title: string, setLoading: (loading: boolean) => void }> = ({ title, setLoading }) => {
+const PublishPostEditor: React.FC<{ title: string, setLoading: (loading: boolean) => void , userAccessToken:string}> = ({ title, setLoading , userAccessToken}) => {
   const [thumbnail, setThumbnail] = useState("")
   const [images, setImages] = useState<string[]>([]) // State to track images in the editor
 
@@ -141,7 +141,7 @@ const PublishPostEditor: React.FC<{ title: string, setLoading: (loading: boolean
       content: postContent,
       post_url: `${mainUrl}/posts/${title}`,
       thumbnail: thumbnail
-    })
+    }, userAccessToken)
 
     setLoading(false)
     console.log(postContent)

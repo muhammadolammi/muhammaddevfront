@@ -1,4 +1,6 @@
-const apiUrl = process.env.REACT_APP_API_URL;
+const isMobile = /Mobi/.test(window.navigator.userAgent);
+
+const apiUrl = isMobile ?   process.env.REACT_APP_MOBILE_API_URL: process.env.REACT_APP_API_URL;
 const apiKey = process.env.REACT_APP_API_KEY;
 const mainUrl = process.env.REACT_APP_MAIN_URL;
 const  firebaseConfig = {

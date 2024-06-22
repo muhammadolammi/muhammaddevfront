@@ -4,7 +4,6 @@ import React from 'react';
 import { fetchTutorials } from '../db/tutorial';
 
 import { fetchPosts } from '../db/posts';
-import { ContentsComponent } from '../components/ContentsComponent';
 import SizedBox from '../common/SizedBox';
 import NavBar from '../common/NavBar';
 import placeholder from '../images/placeholder.png'; // Import the placeholder image

@@ -91,7 +91,7 @@ export const DashboardPage: React.FC =  () => {
          } />
 
         
-        <Route   path= "/publishpost"   element= {<PublishPostPage/> } />
+        <Route   path= "/publishpost"   element= {<PublishPostPage userAccessToken={currentUser.access_token}/> } />
         <Route   path= "/publishtutorial"   element= {<PublishTutorialPage/> } />
         <Route   path= "/editpost/:postTitle"   element= {<EditPostPage/> } />
         <Route   path= "/edittutorial/:tutorialTitle"   element= {<EditTutorialPage/> } />
