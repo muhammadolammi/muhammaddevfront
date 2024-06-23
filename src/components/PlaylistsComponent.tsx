@@ -1,6 +1,5 @@
 
 
-import '../css/cards.css'
 
 import React, { useEffect, useRef, useState } from 'react';
 

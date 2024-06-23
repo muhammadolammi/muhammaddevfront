@@ -7,7 +7,6 @@ import {  getPostWithTitle } from '../db/posts'
 import { EmptyPost, EmptyTutorial, Post, Tutorial } from '../db/models'
 import {  getTutorialWithTitle } from '../db/tutorial'
 import DOMPurify from 'dompurify'
-import '../css/contentPage.css'
 import { ReFormatTitle } from '../helperfunc/formatTitle'
 import NavBar from '../common/NavBar'
 
@@ -24,7 +23,7 @@ const ContentPage = (props: Props) => {
     const [tutorial, setTutorial] = useState<Tutorial>(EmptyTutorial)
     useEffect(()=>{
         const fetchContent =()=>{
-         if(contentType=="posts"){
+         if(contentType==="posts"){
              // Check if theres a valid content id
              if(title){
                 const contentTitle = decodeURIComponent(title)   
@@ -43,7 +42,7 @@ const ContentPage = (props: Props) => {
                  })
              }
          }   
-         if(contentType=="tutorials"){
+         if(contentType==="tutorials"){
              // Check if theres a valid content id
              if(title){
                 const contentTitle = decodeURIComponent(title) 
@@ -70,7 +69,7 @@ const ContentPage = (props: Props) => {
          fetchContent()
       },[])
 // Handle for posts
-   if(post!=EmptyPost){
+   if(post!==EmptyPost){
   
    
         return (
@@ -90,7 +89,7 @@ const ContentPage = (props: Props) => {
    }
 //  Handle Tutorials
 
-if(tutorial !=EmptyTutorial){
+if(tutorial !==EmptyTutorial){
         return (
             <div className="ContentPage">
                 <h1 className="ContentTitle"> {ReFormatTitle(tutorial.title)}</h1>

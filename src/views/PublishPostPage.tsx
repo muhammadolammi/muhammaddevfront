@@ -1,11 +1,14 @@
 import React, {  useState } from 'react'
+
 // import { useNavigate } from 'react-router'
 
 import { PublishPostEditor } from '../components/PublishPostEditor'
 // import { replacePlaceholdersWithImages } from '../helperfunc/HelperFuncs'
 
 
-type Props = {}
+type Props = {
+  userAccessToken:string
+}
 
 const PublishPostPage = (props: Props) => {
   const [title, setTitle] = useState("")
@@ -26,7 +29,7 @@ const PublishPostPage = (props: Props) => {
        
         <PublishPostEditor 
         title={title}
-        setLoading={setLoading}/>
+        setLoading={setLoading} userAccessToken={props.userAccessToken}/>
         
 <br></br>
         

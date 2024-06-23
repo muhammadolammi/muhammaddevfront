@@ -1,5 +1,5 @@
 
-import '../css/tiptap.css'
+import '../index.css'
 import Document from '@tiptap/extension-document'
 import Dropcursor from '@tiptap/extension-dropcursor'
 import Image from '@tiptap/extension-image'
