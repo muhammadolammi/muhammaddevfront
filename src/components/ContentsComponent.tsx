@@ -2,11 +2,8 @@
 import React from 'react';
 import placeholder from '../images/placeholder.png'; 
 import videoPlaceholder from '../images/videoplaceholder.png';
-import { ContentsType } from '../common/ContentsType';
 
 import { useNavigate } from 'react-router';
-import SizedBox from '../common/SizedBox';
-import { ReFormatTitle } from '../helperfunc/formatTitle';
 import { Post, Tutorial } from '../db/models';
 import { getPreviewContent } from '../helperfunc/getPreviewContent';
 import { PlayCircleIcon } from '@heroicons/react/24/solid';
@@ -57,16 +54,16 @@ const navigate = useNavigate()
   
  
   return (
-    <div className='m-auto py-2 mb-[50px]   bg-[#131313] overflow-hidden'>
+    <div className='m-auto py-2 mb-[50px]  md:w-[300px] md:h-[400px] bg-[#131313] overflow-hidden'>
       
       <img src={thumbnail} alt="" className='relative w-[275px] h-[170px] m-auto'/>
 
- <p className=' w-full mt-[15px] ml-[10px] font-bold font-poppins text-[#F0F2F5]  text-sm '>{post.title}</p>
+ <p className=' w-full mt-[15px] ml-[10px] md:h-[50px] font-bold font-poppins text-[#F0F2F5]  text-sm overflow-hidden '>{post.title}</p>
 
-<p className=' mt-[15px] ml-[10px]   font-medium  text-wrap font-poppins text-[#606060] text-left text-sm '>{getPreviewContent(post.content, 30)}</p>
+<p className=' mt-[15px] ml-[10px] md:h-[100px]  font-medium  text-wrap font-poppins text-[#606060] text-left text-sm  overflow-hidden'>{getPreviewContent(post.content, 30)}</p>
 
 
-<p className=' mt-[20px] ml-[10px] font-thin font-poppins text-[#606060]  text-sm ' onClick={()=>{
+<p className=' mt-[10px] ml-[10px] font-thin font-poppins text-[#606060]  text-sm ' onClick={()=>{
   navigate(`/posts/${post.title}`)
 }}>View Post</p>
 
@@ -77,7 +74,7 @@ const navigate = useNavigate()
 
   function TutorialsComponent ({ loading, tutorials }: { loading: boolean; tutorials: Tutorial[],  }) {
    
- return   <div className="mt-[20px]  ">
+ return   <div className="mt-[20px] md:flex md:flex-wrap ">
 
      
     {
@@ -97,7 +94,7 @@ const navigate = useNavigate()
   
   function PostsComponent ({ loading, posts }: { loading: boolean; posts: Post[],  }) {
    
-    return   <div className=" mt-[20px]      md:flex">
+    return   <div className=" mt-[20px]  md:flex md:flex-wrap ">
    
         
        {

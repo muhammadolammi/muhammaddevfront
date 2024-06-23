@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { Bars3Icon} from "@heroicons/react/24/solid"
 import ActionButton from './ActionButton';
-import logo from '../images/logo.png';
+import logo from '../images/logo.png'
 
 
 type Props = {}
@@ -14,9 +14,9 @@ const NavBar = (props: Props) => {
   return (
     <div className='flex flex-row  items-center justify-between gap-x-5 ml-5 mr-5 md:ml-20 md:mr-20  bg-transparent h-[111px] text-white  font-poppins'   >
 
-      <img src={logo} alt="" className='h-10 w-10 '/>
+      <img src={logo} alt="" className='w-10 h-10'/>
         
-     <div className='flex flex-row gap-x-10 justify-center items-center'>
+     <div className='flex flex-row gap-x-10 md:gap-x-0  justify-center items-center'>
      <ActionButton actionText='Contact Me' />
     <button className='block md:hidden '  onClick={()=>setIsMenuOpen(!isMenuOpen)}>
       <Bars3Icon className='h-6 w-6'/>
