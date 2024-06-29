@@ -62,14 +62,14 @@ function HomePage() {
     <div className='bg-black'>
       <NavBar/>
       {/*FIRST CONTAINER */}
-  <div className=' container  mt-[50px]  md:mt-[100px]   text-[#F0F2F5]  font-bold w-full md:w-[1032px] h-full  text-center text-wrap  ' >
+  <div className=' container  mt-[50px]  md:mt-[100px]   text-[#F0F2F5]  font-bold w-full md:w-[900px] h-full  text-center text-wrap  ' >
        <p className='text-5xl font-semibold md:text-7xl  '> Empower Your Coding 
      
       Journey
       </p> 
       </div>
 
-      <div className='container mt-[30px] w-full md:w-[819px] h-full text-center text-[#B0B0B0] text-sm  font-poppins md:p-[10px]'>
+      <div className='container mt-[30px] w-full md:w-[800px] h-full text-center text-[#B0B0B0] text-sm  md:text-x font-poppins md:p-[10px]'>
         <p >
         This platform is designed to empower you, a junior programmer, on your 
         <br />
@@ -89,10 +89,10 @@ function HomePage() {
 
 {/* IMAGE FIGURE */}
 
-<figure className=" container  mt-[60px] md:mt-[100px]  max-w-xl h-[300px] flex justify-center items-center ">
+<figure className=" container  mt-[60px] md:mt-[100px] md:w-[1172px] max-w-xl md:max-w-none h-[300px] flex justify-center items-center ">
 <div className='relative'>
   
-<img className="  rounded-lg  mt-[100px]  "  src={code} alt=''/>
+<img className=" container rounded-lg  mt-[100px] md:w-[700px] md:h-[400px] "  src={code} alt=''/>
     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-[#000]"></div>
 
 </div>
