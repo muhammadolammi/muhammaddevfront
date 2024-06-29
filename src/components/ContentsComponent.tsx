@@ -84,7 +84,7 @@ const navigate = useNavigate()
       <TutorialCard key={tutorial.id}  tutorial={tutorial}  />
    
     ))) : (
-      <p>No Tutorial available</p>
+      <p className='text-center container'>No Tutorial available</p>
     )
   
     }
@@ -104,7 +104,7 @@ const navigate = useNavigate()
          <PostCard key={post.id}   post={post}  />
       
        ))) : (
-         <p>No Posts available</p>
+         <p className='text-center container'>No Posts available</p>
        )
      
        }

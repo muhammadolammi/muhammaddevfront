@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { Bars3Icon} from "@heroicons/react/24/solid"
-import ActionButton from './ActionButton';
+import {ActionButton} from './ActionButton';
 import logo from '../images/logo.png'
 
 
@@ -30,7 +30,7 @@ const NavBar = (props: Props) => {
           </li>
           <li  className='hover:text-[#E7B000]' ><a href="/"> Home</a></li>
           <li className='hover:text-[#E7B000]' ><a href="#1"> About</a></li>
-          <li className='hover:text-[#E7B000]' ><a href="#2"> Projects</a></li>
+          <li className='hover:text-[#E7B000]' ><a href="/portfolio"> Portfolio</a></li>
           <li className='hover:text-[#E7B000]' ><a href="/tutorials"> Tutorials</a></li>
           <li className='hover:text-[#E7B000]' ><a href="/posts"> Blogs</a></li>
         </ul>

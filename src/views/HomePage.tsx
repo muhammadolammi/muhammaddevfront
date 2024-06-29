@@ -1,17 +1,17 @@
-import code from '../images/code1.png';
 import skillCodeImage from '../images/skillcode.png'; // Import the placeholder image
 
 
 import React, { useEffect, useState } from 'react'
 import NavBar from '../common/NavBar'
 import Footer from '../common/Footer';
-import ActionButton from '../common/ActionButton';
+import  {ActionButton, PageButton } from '../common/ActionButton';
 import { PlusIcon , ChevronRightIcon} from '@heroicons/react/24/solid';
 import { useNavigate } from 'react-router';
 import { PostsComponent, TutorialsComponent } from '../components/ContentsComponent';
 import { Post, Tutorial } from '../db/models';
 import { fetchPosts } from '../db/posts';
 import { fetchTutorials } from '../db/tutorial';
+import { PageImageFigure } from '../common/PageImageFigure';
 
 
 function HomePage() {
@@ -83,25 +83,18 @@ function HomePage() {
 
       <div className=" mt-[30px] flex justify-center">
         
-        <ActionButton actionText='Contact Me' />
+     <PageButton actionText='Contact Me' />
    </div>
 
 
 {/* IMAGE FIGURE */}
+<PageImageFigure />
 
-<figure className=" container  mt-[60px] md:mt-[100px] md:w-[1172px] max-w-xl md:max-w-none h-[300px] flex justify-center items-center ">
-<div className='relative'>
-  
-<img className=" container rounded-lg  mt-[100px] md:w-[700px] md:h-[400px] "  src={code} alt=''/>
-    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-[#000]"></div>
 
-</div>
-  
-</figure>
 
 
 {/* LEARNING PATH */}
-   <div className='container  mt-[200px] w-full md:w-[522px] h-full'>
+   <div className='container  mt-[100px] w-full md:w-[522px] h-full'>
     <p className='text-[#F0F2F5] text-center  text-4xl md:text-6xl  font-semibold'>Clear Learning Paths</p>
    </div>
    <div className='container  mt-[20px] md:mt-[30px] w-full md:w-[700px] h-full md:text-lg	'>
@@ -109,7 +102,7 @@ function HomePage() {
    </div>
    
 
-   <div  className='container w-full h-full mt-[10px] md:mt-[30px] flex flex-row   flex-wrap md:w-[510px] md:gap-x-[10px]'>
+   <div  className='container w-full h-full mt-[10px] md:mt-[30px] flex flex-row   flex-wrap md:w-[600px] md:gap-x-[10px] md:gap-y-[10px]'>
    <SkillConatiner skillName="Golang"/>  
    <SkillConatiner skillName="Docker" />  
    <SkillConatiner skillName="Kubernetes" />  
@@ -119,7 +112,7 @@ function HomePage() {
    <SkillConatiner skillName={`GithubAction`}/>  
    </div>
   {/* CODE EXAMPLES */}
-   <div className='text-white mt-[100px] md:flex  md:justify-center md:items-center    '>
+   <div className='md:container text-white mt-[100px] md:flex  md:justify-center md:items-center    '>
     <div className='container  '>
       <p className='text-center md:text-left text-[#F0F2F5] font-semibold text-3xl md:text-5xl'>
         Code Examples
@@ -128,7 +121,7 @@ function HomePage() {
       Learning by doing is paramount! We provide you with access to a wealth of code examples for each topic. You can practice your newfound skills in dedicated coding zones, allowing you to experiment and solidify your understanding.
       </p>
       <button className='mt-[20px] border border-[#FDF7F2] text-[#FDF7F2] font-regular text-[17px] font-poppins py-2 px-4 rounded-lg center' onClick={()=> onNavigate()}>
-       <div className='flex flex-row justify-center items-center gap-x-[5px]'>
+       <div className='flex flex-row justify-center items-center gap-x-[5px] md:gap-x-0'>
        Access Ressources
        <ChevronRightIcon className='h-4 w-4 pt-[2px]'/>
        </div>
@@ -138,9 +131,7 @@ function HomePage() {
     
     </div>
         
-         
-    
-     
+          
     <div className='container mt-[20px] relative'>
         <img src={skillCodeImage} alt="" className='h-auto w-full  ' />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-[#000]"></div>
