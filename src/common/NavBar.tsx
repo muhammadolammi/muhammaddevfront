@@ -17,7 +17,8 @@ const NavBar = (props: Props) => {
       <img src={logo} alt="" className='w-10 h-10'/>
         
      <div className='flex flex-row gap-x-10 md:gap-x-0  justify-center items-center'>
-     <ActionButton actionText='Contact Me' />
+      <a href="mailto:muhammadolammi@gmail.com"> <ActionButton actionText='Contact Me' /></a>
+    
     <button className='block md:hidden '  onClick={()=>setIsMenuOpen(!isMenuOpen)}>
       <Bars3Icon className='h-6 w-6'/>
     </button>
