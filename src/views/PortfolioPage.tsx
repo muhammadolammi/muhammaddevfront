@@ -1,14 +1,17 @@
 import React from 'react';
 
 
-import skillCodeImage from '../images/skillcode.png'; // Import the placeholder image
+import skillCodeImage from '../assets/images/skillcode.png'; // Import the placeholder image
+import logo from '../assets/images/logo.png'
+import gochatlogo from '../assets/images/gochatlogo.jpg'
+import questionbanklogo from '../assets/images/questionbanklogo.jpg'
+
 
 import NavBar from '../common/NavBar';
-import placeholder from '../images/placeholder.png'; // Import the placeholder image
+import placeholder from '../assets/images/placeholder.png'; // Import the placeholder image
 import { FieldContainer } from '../components/FieldContainer';
-import SectionTitle from '../common/SectionTitle';
 import { ChevronRightIcon, FaceSmileIcon} from "@heroicons/react/24/solid"
-import AmpersandIcon from '../images/ampersnad';
+import AmpersandIcon from '../assets/images/ampersnad';
 import { PageButton } from '../common/ActionButton';
 import { PageImageFigure } from '../common/PageImageFigure';
 import Footer from '../common/Footer';
@@ -66,10 +69,14 @@ const PortfolioPage =() => {
       </p>
       <p className='text-left text-[#B0B0B0] mt-[20px] font-poppins text-sm md:w-[310px] md:text-left'>
       I am a dedicated and skilled Software Developer and DevOps Engineer with a passion for coding and a knack for problem-solving. My journey in the tech world has equipped me with a comprehensive skill set that spans across various programming languages and development tools. I enjoy turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies or sharing my knowledge through tutorials and blogs.      </p>
-      <button className='mt-[20px] border border-[#FDF7F2] text-[#FDF7F2] font-regular text-[17px] font-poppins py-2 px-4 rounded-lg center' >
+      <button className='mt-[20px] border border-[#FDF7F2] text-[#FDF7F2] font-regular text-[17px] font-poppins py-2 px-4 rounded-lg center'
+              onClick={() => document.getElementById('downloadLink')!.click()}
+
+      >
        <div className='flex flex-row justify-center items-center gap-x-[5px] md:gap-x-0'>
        Download CV
        <ChevronRightIcon className='h-4 w-4 pt-[2px]'/>
+      
        </div>
       </button>
     
@@ -112,12 +119,32 @@ const PortfolioPage =() => {
         </div>
 
       {/* Projects */}
-      <div className='mt-[50px]'>
+      <div className='container text-white mt-[100px]  '>
         <p className='text-center text-3xl text-[#F0F2F5] font-semibold font-clash-grostek mb-[10px]'> Projects</p>
-        <ProjectComponent />
-        <ProjectComponent />
-        <ProjectComponent />
-        <ProjectComponent />
+       <div className='flex flex-col gap-y-[100px] mt-[60px]'>
+        
+       <ProjectComponent  Name='MuhammadDev' Description='
+Developed a full-stack web app using Golang for the REST API and React for the frontend, implemented manual authentication with Golang’s crypto/bcrypt and JWT, set up CI/CD with GitHub Actions for deployment and updates, hosted the backend on a Linux server with Nginx for SSL and port-forwarding to Docker containers, hosted the frontend on Firebase, and used GitHub Actions to back up PostgreSQL data and CI/CD implementation.'
+ Logo = {logo} 
+ Links={[
+  { LinkName: "Github", LinkUrl: "https://github.com/muhammadolammi/muhammaddev" }, 
+  { LinkName: "Site Url", LinkUrl: "https://muhammaddev.com" }
+]}
+  />
+        <ProjectComponent Name='GoChat'  Description="Developed a CLI-based application for using a ChatGPT clone directly in the terminal, with an option to save chats to a directory in the user's home for convenience, eliminating the need to open Chrome for each session."
+         Logo= {gochatlogo} 
+         Links={[
+          { LinkName: "Github", LinkUrl: "https://github.com/muhammadolammi/gochat" }, 
+        ]}/>
+        <ProjectComponent Name='QuestionBank Generator'  Description='Generated a question bank using Google Gemini with up to 10,000 multiple-choice questions, saved as JSON files, and migrated to documents using Python.'
+         Logo= {questionbanklogo} 
+         Links={[
+          { LinkName: "Github", LinkUrl: "https://github.com/muhammadolammi/questionbankgenerator" }, 
+        ]}/>
+        {/* <ProjectComponent Name='Naijalocation'  Description='' 
+        Logo= {placeholder}/> */}
+       </div>
+
       </div>
         <Footer />
 </div>

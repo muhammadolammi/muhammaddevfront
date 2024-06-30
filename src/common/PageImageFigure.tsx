@@ -1,5 +1,5 @@
 
-import code from '../images/code1.png';
+import code from '../assets/images/code1.png';
 
 import React from 'react'
 

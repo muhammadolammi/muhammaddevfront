@@ -1,7 +1,7 @@
 
 import React from 'react';
-import placeholder from '../images/placeholder.png'; 
-import videoPlaceholder from '../images/videoplaceholder.png';
+import placeholder from '../assets/images/placeholder.png'; 
+import videoPlaceholder from '../assets/images/videoplaceholder.png';
 
 import { useNavigate } from 'react-router';
 import { Post, Tutorial } from '../db/models';

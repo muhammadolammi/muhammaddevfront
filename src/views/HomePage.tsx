@@ -1,4 +1,4 @@
-import skillCodeImage from '../images/skillcode.png'; // Import the placeholder image
+import skillCodeImage from '../assets/images/skillcode.png'; // Import the placeholder image
 
 
 import React, { useEffect, useState } from 'react'

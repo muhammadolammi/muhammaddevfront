@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { Bars3Icon} from "@heroicons/react/24/solid"
 import {ActionButton} from './ActionButton';
-import logo from '../images/logo.png'
+import logo from '../assets/images/logo.png'
 
 
 type Props = {}
