@@ -11,6 +11,8 @@ import { ChevronRightIcon, FaceSmileIcon} from "@heroicons/react/24/solid"
 import AmpersandIcon from '../images/ampersnad';
 import { PageButton } from '../common/ActionButton';
 import { PageImageFigure } from '../common/PageImageFigure';
+import Footer from '../common/Footer';
+import { ProjectComponent } from '../components/ProjectComponent';
 
 
 // import{Tutorial} from './models';
@@ -63,7 +65,7 @@ const PortfolioPage =() => {
         About Me
       </p>
       <p className='text-left text-[#B0B0B0] mt-[20px] font-poppins text-sm md:w-[310px] md:text-left'>
-      I am a dedicated and skilled Full Stack Developer and DevOps Engineer with a passion for coding and a knack for problem-solving. My journey in the tech world has equipped me with a comprehensive skill set that spans across various programming languages and development tools. I enjoy turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies or sharing my knowledge through tutorials and blogs.      </p>
+      I am a dedicated and skilled Software Developer and DevOps Engineer with a passion for coding and a knack for problem-solving. My journey in the tech world has equipped me with a comprehensive skill set that spans across various programming languages and development tools. I enjoy turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies or sharing my knowledge through tutorials and blogs.      </p>
       <button className='mt-[20px] border border-[#FDF7F2] text-[#FDF7F2] font-regular text-[17px] font-poppins py-2 px-4 rounded-lg center' >
        <div className='flex flex-row justify-center items-center gap-x-[5px] md:gap-x-0'>
        Download CV
@@ -76,34 +78,48 @@ const PortfolioPage =() => {
     </div>
         
           
-    <div className='container mt-[20px] relative'>
-        <img src={skillCodeImage} alt="" className='h-auto w-full  ' />
+    <div className='container m-[20px] relative '>
+        <img src={skillCodeImage} alt="" className='h-[200px] w-full  ' />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-[#000]"></div>
 
       </div>
 </div>
 
      {/* Fields and Skills */}
-     <div >
-          <FieldContainer fieldName='Back-end Development' skills={[
+     <div className='container text-white mt-[100px] '>
+      <p className='text-center text-3xl text-[#F0F2F5] font-semibold font-clash-grostek mb-[10px]'> Skills</p>
+        <div className='flex flex-col gap-y-[50px]'>
+        <FieldContainer fieldName='Back-end Development' skills={[
           {skill:"Golang", description:"Advance", logo:placeholder},
+          {skill:"Python", description:"Advance", logo:placeholder},
+          {skill:"REST-API", description:"Advance", logo:placeholder},
           {skill:"Docker", description:"Advance", logo:placeholder},
-          {skill:"Golang", description:"Advance", logo:placeholder},
-          {skill:"Docker", description:"Advance", logo:placeholder},
-          {skill:"Golang", description:"Advance", logo:placeholder},
-          {skill:"Docker", description:"Advance", logo:placeholder},
-          ]} height={419}/>
+          {skill:"Linux", description:"Advance", logo:placeholder},
+          {skill:"PostgreSql", description:"Advance", logo:placeholder},
+          ]} />
      <FieldContainer fieldName='Front-end Development' skills={[
             {skill:"React TypeScript", description:"Advance", logo:placeholder},
           {skill:"Flutter", description:"Advance", logo:placeholder},
-          ]} height={294}/>
+          ]} />
           
           <FieldContainer fieldName='Dev Ops' skills={[
           {skill:"Github Actions", description:"Advance", logo:placeholder},
+          {skill:"Terraform", description:"Advance", logo:placeholder},
           
-          ]} height={196}/>
+          ]} />
+        </div>
     
         </div>
+
+      {/* Projects */}
+      <div className='mt-[50px]'>
+        <p className='text-center text-3xl text-[#F0F2F5] font-semibold font-clash-grostek mb-[10px]'> Projects</p>
+        <ProjectComponent />
+        <ProjectComponent />
+        <ProjectComponent />
+        <ProjectComponent />
+      </div>
+        <Footer />
 </div>
 
   );
