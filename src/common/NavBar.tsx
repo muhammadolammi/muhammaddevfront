@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react'
 import { Bars3Icon} from "@heroicons/react/24/solid"
-import ActionButton from './ActionButton';
-import logo from '../images/logo.png'
+import {ActionButton} from './ActionButton';
+import logo from '../assets/images/logo.png'
 
 
 type Props = {}
@@ -17,7 +17,8 @@ const NavBar = (props: Props) => {
       <img src={logo} alt="" className='w-10 h-10'/>
         
      <div className='flex flex-row gap-x-10 md:gap-x-0  justify-center items-center'>
-     <ActionButton actionText='Contact Me' />
+      <a href="mailto:muhammadolammi@gmail.com"> <ActionButton actionText='Contact Me' /></a>
+    
     <button className='block md:hidden '  onClick={()=>setIsMenuOpen(!isMenuOpen)}>
       <Bars3Icon className='h-6 w-6'/>
     </button>
@@ -30,7 +31,7 @@ const NavBar = (props: Props) => {
           </li>
           <li  className='hover:text-[#E7B000]' ><a href="/"> Home</a></li>
           <li className='hover:text-[#E7B000]' ><a href="#1"> About</a></li>
-          <li className='hover:text-[#E7B000]' ><a href="#2"> Projects</a></li>
+          <li className='hover:text-[#E7B000]' ><a href="/portfolio"> Portfolio</a></li>
           <li className='hover:text-[#E7B000]' ><a href="/tutorials"> Tutorials</a></li>
           <li className='hover:text-[#E7B000]' ><a href="/posts"> Blogs</a></li>
         </ul>
