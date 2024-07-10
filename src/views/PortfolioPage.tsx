@@ -13,6 +13,10 @@ import linuxlogo from '../assets/images/linuxlogo.jpg'
 import postsqllogo from '../assets/images/postgreslogo.png'
 import reactlogo from '../assets/images/reactlogo.png'
 import flutterlogo from '../assets/images/flutterlogo.png'
+import vbnetlogo from '../assets/images/vbnetlogo.png'
+import kuberneteslogo from '../assets/images/kuberneteslogo.png'
+
+
 
 import terraformlogo from '../assets/images/tflogo.png'
 import ghalogo from '../assets/images/ghalogo.png'
@@ -125,10 +129,11 @@ const PortfolioPage =() => {
           <FieldContainer fieldName='Back-end Development' skills={[
           {skill:"Golang", description:"Advance", logo:gologo},
           {skill:"Python", description:"Advance", logo:pythonlogo},
-          {skill:"REST-API", description:"Advance", logo:restapilogo},
-          {skill:"Docker", description:"Advance", logo:dockerlogo},
-          {skill:"Linux", description:"Advance", logo:linuxlogo},
+          {skill:"Vb.Net", description:"Advance", logo:vbnetlogo},
           {skill:"PostgreSql", description:"Advance", logo:postsqllogo},
+          {skill:"REST-API", description:"Advance", logo:restapilogo},
+          {skill:"Linux", description:"Advance", logo:linuxlogo},
+         
           ]} />
           </div>
        <div className='md:gap-y-[40px] gap-y-[50px] flex flex-col'>
@@ -139,6 +144,8 @@ const PortfolioPage =() => {
           ]} />
           
           <FieldContainer fieldName='Dev Ops' skills={[
+          {skill:"Docker", description:"Advance", logo:dockerlogo},
+          {skill:"Kubernetes", description:"Advance", logo:kuberneteslogo},
           {skill:"Github Actions", description:"Advance", logo:ghalogo},
           {skill:"Terraform", description:"Advance", logo:terraformlogo},
           
