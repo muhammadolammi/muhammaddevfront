@@ -1,3 +1,3 @@
-![code coverage badge](https://github.com/muhammadolammi/muhammaddevfront/actions/workflows/ci.yml/badge.svg)
+![code coverage badge](https://github.com/muhammadolammi/muhammaddevfront/actions/workflows/firebase-hosting-merge.yml/badge.svg)
 
 Frontend for muhammaddev.com
