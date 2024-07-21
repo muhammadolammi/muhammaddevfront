@@ -2,7 +2,7 @@ import React, {  useState } from 'react'
 
 // import { useNavigate } from 'react-router'
 
-import { PublishPostEditor } from '../components/PublishPostEditor'
+import { PublishPostEditor } from '../components/EditorComponents'
 // import { replacePlaceholdersWithImages } from '../helperfunc/HelperFuncs'
 
 

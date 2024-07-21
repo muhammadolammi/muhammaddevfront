@@ -27,7 +27,7 @@ const navigate = useNavigate()
   <div className='text-white container block w-[280px] p-[20px] bg-[#131313]'>
    <div className='relative flex justify-center items-center '>
    <img src={thumbnail} alt="" />
-   <PlayCircleIcon className='absolute h-12 w-12 stroke-white fill-transparent  '/>
+   <PlayCircleIcon className='absolute size-12 stroke-white fill-transparent  '/>
 
    
    </div>
@@ -74,7 +74,7 @@ const navigate = useNavigate()
 
   function TutorialsComponent ({ loading, tutorials }: { loading: boolean; tutorials: Tutorial[],  }) {
    
- return   <div className="mt-[20px] md:flex md:flex-wrap ">
+ return   <div className="mt-[20px] flex flex-wrap gap-y-5 md:flex md:flex-wrap md:gap-y-5 ">
 
      
     {

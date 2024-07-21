@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Post } from '../db/models';
 import {  getPostWithTitle } from '../db/posts';
-import { EditPostEditor } from '../components/EditPostEditor';
+import { EditPostEditor } from '../components/EditorComponents';
 import { dataToPost } from '../helperfunc/dataToPost';
 import { ReFormatTitle } from '../helperfunc/formatTitle';
 
