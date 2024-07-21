@@ -31,7 +31,6 @@ import ghalogo from '../assets/images/ghalogo.png'
 
 
 import NavBar from '../common/NavBar';
-import placeholder from '../assets/images/placeholder.png'; // Import the placeholder image
 import { FieldContainer } from '../components/FieldContainer';
 import { ChevronRightIcon, FaceSmileIcon} from "@heroicons/react/24/solid"
 import AmpersandIcon from '../assets/images/ampersnad';
@@ -55,7 +54,7 @@ const PortfolioPage =() => {
     
      <div className='container  flex flex-col gap-y-[10px] mt-[100px] md:mt-[100px] text-white text-center '>
   <div className=' container  flex items-center  justify-center gap-x-[5px] text-[#F0F2F5] font-coolvetica'>
-  <p className='text-xl'>Hi, Im  </p>
+  <p className='text-xl'>Hi, I'm  </p>
   <FaceSmileIcon className='w-4 h-4 text-[#FFCC4D] '/>
   </div>
   
