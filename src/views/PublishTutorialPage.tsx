@@ -1,7 +1,7 @@
 import React, {  useState } from 'react'
 // import { useNavigate } from 'react-router'
 
-import { PublishTutorialEditor } from '../components/PublishTutorialEditor'
+import { PublishTutorialEditor } from '../components/EditorComponents'
 // import { replacePlaceholdersWithImages } from '../helperfunc/HelperFuncs'
 
 

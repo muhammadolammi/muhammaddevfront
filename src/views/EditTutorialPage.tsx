@@ -5,7 +5,7 @@ import { Tutorial } from '../db/models';
 
 import {  getTutorialWithTitle } from '../db/tutorial';
 import { dataToTutorial } from '../helperfunc/datatToTutorial';
-import { EditTutorialEditor } from '../components/EditTutorialEditor';
+import { EditTutorialEditor } from '../components/EditorComponents';
 import { ReFormatTitle } from '../helperfunc/formatTitle';
 
 type Props = {};
