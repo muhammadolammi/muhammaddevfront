@@ -1,17 +1,17 @@
-import React from 'react';
-import './index.css';
+// import React from 'react';
+// import './index.css';
 
-import { Outlet } from 'react-router';
-// import{Tutorial} from './models';
+// import { Outlet } from 'react-router';
+// // import{Tutorial} from './models';
 
-function App() {
+// function App() {
    
-   return <>
-   <Outlet />
-   </>
-}
+//    return <>
+//    <Outlet />
+//    </>
+// }
 
-export default App;
+// export default App;
 
 
 
